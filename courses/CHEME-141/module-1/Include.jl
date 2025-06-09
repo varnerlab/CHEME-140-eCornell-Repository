@@ -24,3 +24,4 @@ using JLD2
 using PrettyTables
 using Clustering
 using Distributions
+using Unicode
