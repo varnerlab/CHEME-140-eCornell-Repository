@@ -24,3 +24,4 @@ using Distributions
 using Statistics
 using UnicodePlots
 using BenchmarkTools
+using DataStructures
