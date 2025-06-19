@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600px" height="743px" viewBox="0 0 600 743" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bubblesort</title>
+    <defs>
+        <path d="M0,0 L600,0 L600,743 L0,743 L0,0 Z" id="path-1"></path>
+    </defs>
+    <g id="Bubblesort" stroke="none" fill="none" xlink:href="#path-1">
+        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        <g id="first-compare" stroke-width="1" fill-rule="evenodd" transform="translate(46, 71)">
+            <rect id="Rectangle" stroke="#000000" fill="#FDD2AC" x="0.5" y="70.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="176.5" y="70.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="132.5" y="70.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="88.5" y="70.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" fill="#D8D8D8" x="44.5" y="70.5" width="43" height="43"></rect>
+            <text id="5" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="56" y="105">5</tspan>
+            </text>
+            <text id="8" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="13" y="105">8</tspan>
+            </text>
+            <text id="6" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="100" y="105">6</tspan>
+            </text>
+            <text id="9" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="143" y="105">9</tspan>
+            </text>
+            <text id="2" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="187" y="105">2</tspan>
+            </text>
+            <path id="Line" d="M41,37.5 C53.3277774,37.5 61.7749024,41.4070574 66.18684,49.2565141 L66.2419777,49.354612 L66.2739344,49.4625107 L68.587,57.276 L70.8024199,47.5737294 L71.0249878,46.5988122 L72.9748222,47.043948 L72.7522543,48.0188652 L69.6879017,61.4416907 L69.2922255,63.1748768 L68.0165155,61.9367096 L58.1366578,52.3476058 L57.419071,51.6511368 L58.812009,50.2159631 L59.5295959,50.9124321 L66.669,57.842 L64.389,50.142 L64.2492751,49.8988742 C60.245115,43.0891547 52.726276,39.613074 41.5524784,39.5027138 L41,39.5 C29.2892322,39.5 21.4212387,43.1204602 17.247224,50.3291485 L17.301,50.238 L14.88,57.877 L22.1503462,51.0840151 L22.8809928,50.4012592 L24.2465046,51.8625523 L23.515858,52.5453082 L13.4561922,61.9456073 L12.157265,63.1593956 L11.7944794,61.4190277 L8.98485137,47.9405823 L8.78078445,46.9616253 L10.7386983,46.5534915 L10.9427652,47.5324484 L12.973,57.273 L15.428546,49.5259766 L15.5164301,49.3269746 C20.0880648,41.4315809 28.6321866,37.5 41,37.5 Z" fill="#000000" fill-rule="nonzero"></path>
+            <text id="compare" font-family="Helvetica" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="9" y="25">compare</tspan>
+            </text>
+            <text id="exchange" font-family="Helvetica" font-size="18" font-weight="normal" fill="#E02020">
+                <tspan x="3" y="159">exchange</tspan>
+            </text>
+            <path id="Line-2" d="M60.8093429,126.319082 L61.2451306,126.564212 L69.2451306,131.064212 L70.0198644,131.5 L69.2451306,131.935788 L61.2451306,136.435788 L60.8093429,136.680918 L60.3190816,135.809343 L60.7548694,135.564212 L67.091,132 L17.908,132 L24.2451306,135.564212 L24.6809184,135.809343 L24.1906571,136.680918 L23.7548694,136.435788 L15.7548694,131.935788 L14.9801356,131.5 L15.7548694,131.064212 L23.7548694,126.564212 L24.1906571,126.319082 L24.6809184,127.190657 L24.2451306,127.435788 L17.908,131 L67.091,131 L60.7548694,127.435788 L60.3190816,127.190657 L60.8093429,126.319082 Z" fill="#E02020" fill-rule="nonzero"></path>
+        </g>
+        <g id="second-compare" stroke-width="1" fill-rule="evenodd" transform="translate(46, 237)">
+            <rect id="Rectangle" stroke="#000000" x="0.5" y="53.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="176.5" y="53.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="132.5" y="53.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" fill="#D8D8D8" x="88.5" y="53.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" fill="#FDD2AC" x="44.5" y="53.5" width="43" height="43"></rect>
+            <text id="5" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="12" y="88">5</tspan>
+            </text>
+            <text id="8" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="56" y="88">8</tspan>
+            </text>
+            <text id="6" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="100" y="88">6</tspan>
+            </text>
+            <text id="9" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="143" y="88">9</tspan>
+            </text>
+            <path id="Line" d="M94,24.5 C106.327777,24.5 114.774902,28.4070574 119.18684,36.2565141 L119.241978,36.354612 L119.273934,36.4625107 L121.587,44.276 L123.80242,34.5737294 L124.024988,33.5988122 L125.974822,34.043948 L125.752254,35.0188652 L122.687902,48.4416907 L122.292225,50.1748768 L121.016516,48.9367096 L111.136658,39.3476058 L110.419071,38.6511368 L111.812009,37.2159631 L112.529596,37.9124321 L119.67,44.842 L117.389,37.142 L117.249275,36.8988742 C113.245115,30.0891547 105.726276,26.613074 94.5524784,26.5027138 L94,26.5 C82.2892322,26.5 74.4212387,30.1204602 70.247224,37.3291485 L70.301,37.238 L67.88,44.877 L75.1503462,38.0840151 L75.8809928,37.4012592 L77.2465046,38.8625523 L76.515858,39.5453082 L66.4561922,48.9456073 L65.157265,50.1593956 L64.7944794,48.4190277 L61.9848514,34.9405823 L61.7807844,33.9616253 L63.7386983,33.5534915 L63.9427652,34.5324484 L65.973,44.273 L68.428546,36.5259766 L68.5164301,36.3269746 C73.0880648,28.4315809 81.6321866,24.5 94,24.5 Z" fill="#000000" fill-rule="nonzero"></path>
+            <text id="2" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="187" y="88">2</tspan>
+            </text>
+            <path id="Line-2" d="M104.309343,104.819082 L104.745131,105.064212 L112.745131,109.564212 L113.519864,110 L112.745131,110.435788 L104.745131,114.935788 L104.309343,115.180918 L103.819082,114.309343 L104.254869,114.064212 L110.591,110.5 L61.408,110.5 L67.7451306,114.064212 L68.1809184,114.309343 L67.6906571,115.180918 L67.2548694,114.935788 L59.2548694,110.435788 L58.4801356,110 L59.2548694,109.564212 L67.2548694,105.064212 L67.6906571,104.819082 L68.1809184,105.690657 L67.7451306,105.935788 L61.408,109.5 L110.591,109.5 L104.254869,105.935788 L103.819082,105.690657 L104.309343,104.819082 Z" fill="#E02020" fill-rule="nonzero"></path>
+        </g>
+        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(46, 368.5)">
+            <rect id="Rectangle" stroke="#000000" x="0.5" y="31" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="177.5" y="31" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" fill="#D8D8D8" x="133.5" y="31" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" fill="#FDD2AC" x="89.5" y="31" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="45.5" y="31" width="43" height="43"></rect>
+            <text id="5" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="13" y="65.5">5</tspan>
+            </text>
+            <text id="6" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="57" y="65.5">6</tspan>
+            </text>
+            <text id="8" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="101" y="65.5">8</tspan>
+            </text>
+            <text id="9" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="144" y="65.5">9</tspan>
+            </text>
+            <path id="Line" d="M133,-1 C145.327777,-1 153.774902,2.90705739 158.18684,10.7565141 L158.241978,10.854612 L158.273934,10.9625107 L160.587,18.776 L162.80242,9.07372943 L163.024988,8.09881224 L164.974822,8.54394803 L164.752254,9.51886522 L161.687902,22.9416907 L161.292225,24.6748768 L160.016516,23.4367096 L150.136658,13.8476058 L149.419071,13.1511368 L150.812009,11.7159631 L151.529596,12.4124321 L158.67,19.342 L156.389,11.642 L156.249275,11.3988742 C152.245115,4.58915466 144.726276,1.11307396 133.552478,1.00271384 L133,1 C121.289232,1 113.421239,4.62046018 109.247224,11.8291485 L109.301,11.738 L106.88,19.377 L114.150346,12.5840151 L114.880993,11.9012592 L116.246505,13.3625523 L115.515858,14.0453082 L105.456192,23.4456073 L104.157265,24.6593956 L103.794479,22.9190277 L100.984851,9.44058229 L100.780784,8.46162534 L102.738698,8.0534915 L102.942765,9.03244845 L104.973,18.773 L107.428546,11.0259766 L107.51643,10.8269746 C112.088065,2.93158085 120.632187,-1 133,-1 Z" fill="#000000" fill-rule="nonzero"></path>
+            <text id="2" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="188" y="65.5">2</tspan>
+            </text>
+            <g transform="translate(109, 80.5)" fill="#E02020">
+                <path id="Line-2" d="M44.3093429,7.31908161 L44.7451306,7.56421223 L52.7451306,12.0642122 L53.5198644,12.5 L52.7451306,12.9357878 L44.7451306,17.4357878 L44.3093429,17.6809184 L43.8190816,16.8093429 L44.2548694,16.5642122 L50.591,13 L1.409,13 L7.74513062,16.5642122 L8.18091839,16.8093429 L7.69065715,17.6809184 L7.25486938,17.4357878 L-0.74513062,12.9357878 L-1.51986443,12.5 L-0.74513062,12.0642122 L7.25486938,7.56421223 L7.69065715,7.31908161 L8.18091839,8.19065715 L7.74513062,8.43578777 L1.409,12 L50.591,12 L44.2548694,8.43578777 L43.8190816,8.19065715 L44.3093429,7.31908161 Z" fill-rule="nonzero"></path>
+                <text id="x" font-family="HelveticaNeue-Light, Helvetica Neue" font-size="18" font-weight="300">
+                    <tspan x="21" y="17">x</tspan>
+                </text>
+            </g>
+            <path id="Line-2" d="M283.809343,47.8190816 L284.245131,48.0642122 L292.245131,52.5642122 L293.019864,53 L292.245131,53.4357878 L284.245131,57.9357878 L283.809343,58.1809184 L283.319082,57.3093429 L283.754869,57.0642122 L290.091,53.5 L230,53.5 L230,52.5 L290.091,52.5 L283.754869,48.9357878 L283.319082,48.6906571 L283.809343,47.8190816 Z" fill="#979797" fill-rule="nonzero"></path>
+            <text id="No-exchange" font-family="Helvetica" font-size="24" font-weight="normal" fill="#000000">
+                <tspan x="308" y="60.5">No exchange</tspan>
+            </text>
+        </g>
+        <g id="fourth-compare" stroke-width="1" fill-rule="evenodd" transform="translate(46, 446)">
+            <rect id="Rectangle" stroke="#000000" x="0.5" y="59.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" fill="#D8D8D8" x="176.5" y="59.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" fill="#FDD2AC" x="132.5" y="59.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="88.5" y="59.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="44.5" y="59.5" width="43" height="43"></rect>
+            <text id="5" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="12" y="94">5</tspan>
+            </text>
+            <text id="6" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="56" y="94">6</tspan>
+            </text>
+            <text id="8" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="100" y="94">8</tspan>
+            </text>
+            <text id="9" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="143" y="94">9</tspan>
+            </text>
+            <path id="Line" d="M176,28.5 C188.327777,28.5 196.774902,32.4070574 201.18684,40.2565141 L201.241978,40.354612 L201.273934,40.4625107 L203.587,48.276 L205.80242,38.5737294 L206.024988,37.5988122 L207.974822,38.043948 L207.752254,39.0188652 L204.687902,52.4416907 L204.292225,54.1748768 L203.016516,52.9367096 L193.136658,43.3476058 L192.419071,42.6511368 L193.812009,41.2159631 L194.529596,41.9124321 L201.67,48.842 L199.389,41.142 L199.249275,40.8988742 C195.245115,34.0891547 187.726276,30.613074 176.552478,30.5027138 L176,30.5 C164.289232,30.5 156.421239,34.1204602 152.247224,41.3291485 L152.301,41.238 L149.88,48.877 L157.150346,42.0840151 L157.880993,41.4012592 L159.246505,42.8625523 L158.515858,43.5453082 L148.456192,52.9456073 L147.157265,54.1593956 L146.794479,52.4190277 L143.984851,38.9405823 L143.780784,37.9616253 L145.738698,37.5534915 L145.942765,38.5324484 L147.973,48.273 L150.428546,40.5259766 L150.51643,40.3269746 C155.088065,32.4315809 163.632187,28.5 176,28.5 Z" fill="#000000" fill-rule="nonzero"></path>
+            <text id="2" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="187" y="94">2</tspan>
+            </text>
+            <path id="Line-2" d="M194.809343,113.319082 L195.245131,113.564212 L203.245131,118.064212 L204.019864,118.5 L203.245131,118.935788 L195.245131,123.435788 L194.809343,123.680918 L194.319082,122.809343 L194.754869,122.564212 L201.091,119 L151.908,119 L158.245131,122.564212 L158.680918,122.809343 L158.190657,123.680918 L157.754869,123.435788 L149.754869,118.935788 L148.980136,118.5 L149.754869,118.064212 L157.754869,113.564212 L158.190657,113.319082 L158.680918,114.190657 L158.245131,114.435788 L151.908,118 L201.091,118 L194.754869,114.435788 L194.319082,114.190657 L194.809343,113.319082 Z" fill="#E02020" fill-rule="nonzero"></path>
+        </g>
+        <g id="end" stroke-width="1" fill-rule="evenodd" transform="translate(46, 587)">
+            <rect id="Rectangle" stroke="#000000" x="0.5" y="59.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="176.5" y="59.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="132.5" y="59.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="88.5" y="59.5" width="43" height="43"></rect>
+            <rect id="Rectangle" stroke="#000000" x="44.5" y="59.5" width="43" height="43"></rect>
+            <text id="5" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="12" y="94">5</tspan>
+            </text>
+            <text id="6" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="56" y="94">6</tspan>
+            </text>
+            <text id="8" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="100" y="94">8</tspan>
+            </text>
+            <text id="2" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="143" y="94">2</tspan>
+            </text>
+            <text id="9" font-family="Helvetica" font-size="36" font-weight="normal" fill="#000000">
+                <tspan x="187" y="94">9</tspan>
+            </text>
+        </g>
+        <text id="Exchange-8-and-5" font-family="Helvetica" font-size="24" font-weight="normal" fill="#000000">
+            <tspan x="350" y="170">Exchange 8 and 5</tspan>
+        </text>
+        <path id="Line-2" d="M329.809343,156.319082 L330.245131,156.564212 L338.245131,161.064212 L339.019864,161.5 L338.245131,161.935788 L330.245131,166.435788 L329.809343,166.680918 L329.319082,165.809343 L329.754869,165.564212 L336.091,162 L276,162 L276,161 L336.091,161 L329.754869,157.435788 L329.319082,157.190657 L329.809343,156.319082 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Line-2" d="M329.809343,310.319082 L330.245131,310.564212 L338.245131,315.064212 L339.019864,315.5 L338.245131,315.935788 L330.245131,320.435788 L329.809343,320.680918 L329.319082,319.809343 L329.754869,319.564212 L336.091,316 L276,316 L276,315 L336.091,315 L329.754869,311.435788 L329.319082,311.190657 L329.809343,310.319082 Z" fill="#979797" fill-rule="nonzero"></path>
+        <path id="Line-2" d="M329.809343,525.319082 L330.245131,525.564212 L338.245131,530.064212 L339.019864,530.5 L338.245131,530.935788 L330.245131,535.435788 L329.809343,535.680918 L329.319082,534.809343 L329.754869,534.564212 L336.091,531 L276,531 L276,530 L336.091,530 L329.754869,526.435788 L329.319082,526.190657 L329.809343,525.319082 Z" fill="#979797" fill-rule="nonzero"></path>
+        <text id="Exchange-8-and-6" font-family="Helvetica" font-size="24" font-weight="normal" fill="#000000">
+            <tspan x="350" y="324">Exchange 8 and 6</tspan>
+        </text>
+        <text id="Exchange-9-and-2" font-family="Helvetica" font-size="24" font-weight="normal" fill="#000000">
+            <tspan x="350" y="539">Exchange 9 and 2</tspan>
+        </text>
+        <text id="Array-at-the-end-of" font-family="Helvetica" font-size="24" font-weight="normal" fill="#000000">
+            <tspan x="277" y="677">Array at the end of Pass 1</tspan>
+        </text>
+        <path id="Line" d="M523.376529,48.876929 L524.24763,49.3680321 L536.241103,56.1296232 L537.789728,57.0026954 L536.239419,57.8727734 L524.232902,64.6111761 L523.360854,65.100595 L522.382016,63.3564974 L523.254065,62.8670785 L531.93,57.997 L523.750465,57.9891314 L17.4990338,57.4999995 L16.4990343,57.4990334 L16.5009666,55.4990343 L17.5009662,55.5000005 L523.752397,55.9891323 L531.934,55.997 L523.265424,51.110235 L522.394322,50.6191319 L523.376529,48.876929 Z" fill="#000000" fill-rule="nonzero"></path>
+        <text id="First-pass-through-t" font-family="Helvetica" font-size="24" font-weight="normal" fill="#000000">
+            <tspan x="23" y="43">First pass through the data</tspan>
+        </text>
+        <line x1="45.5" y1="607.5" x2="542.5" y2="607.5" id="Line-3" stroke="#979797" stroke-width="1" stroke-linecap="square" stroke-dasharray="4"></line>
+    </g>
+</svg>
