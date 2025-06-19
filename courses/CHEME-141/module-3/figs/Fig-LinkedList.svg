@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="386px" height="119px" viewBox="0 0 386 119" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>LinkedList</title>
+    <g id="LinkedList" stroke="none" fill="none">
+        <rect id="Rectangle" stroke="#979797" stroke-width="1" fill="#BDBBBB" fill-rule="evenodd" x="126.5" y="18.5" width="102" height="96"></rect>
+        <rect id="Rectangle" stroke="#979797" stroke-width="1" fill="#FFEFE4" fill-rule="evenodd" x="126.5" y="56.5" width="102" height="58"></rect>
+        <g id="Group-3" stroke-width="1" fill-rule="evenodd" transform="translate(88, 61)">
+            <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+            <text id="2" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="8.66308594" y="16">2</tspan>
+            </text>
+        </g>
+        <g id="Group-3" stroke-width="1" fill-rule="evenodd" transform="translate(197, 61)">
+            <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+            <text id="4" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="8.66308594" y="16">4</tspan>
+            </text>
+        </g>
+        <rect id="Rectangle" stroke="#EF4035" stroke-width="1" x="284.5" y="61.5" width="23" height="23"></rect>
+        <text id="8" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+            <tspan x="292.663086" y="77">8</tspan>
+        </text>
+        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(8, 29)">
+            <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+            <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+        </g>
+        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(88, 29)">
+            <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+            <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+        </g>
+        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(88, 29)">
+            <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+            <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+        </g>
+        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(197, 29)">
+            <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+            <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+        </g>
+        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(284, 29)">
+            <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+            <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+        </g>
+        <text id="head" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+            <tspan x="4.42773438" y="14">head</tspan>
+        </text>
+        <text id="node" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+            <tspan x="127.427734" y="14">node</tspan>
+        </text>
+        <text id="data" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+            <tspan x="131.322266" y="109">data</tspan>
+        </text>
+        <text id="link" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+            <tspan x="131.99707" y="36">link</tspan>
+        </text>
+        <text id="tail" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+            <tspan x="287.051758" y="14">tail</tspan>
+        </text>
+        <path id="Line-3" d="M75.3093429,35.8190816 L75.7451306,36.0642122 L83.7451306,40.5642122 L84.5198644,41 L83.7451306,41.4357878 L75.7451306,45.9357878 L75.3093429,46.1809184 L74.8190816,45.3093429 L75.2548694,45.0642122 L82.48,41 L75.2548694,36.9357878 L74.8190816,36.6906571 L75.3093429,35.8190816 Z M29.5,40.5 L29.5,41.5 L23.5,41.5 L23.5,40.5 L29.5,40.5 Z M39.5,40.5 L39.5,41.5 L33.5,41.5 L33.5,40.5 L39.5,40.5 Z M49.5,40.5 L49.5,41.5 L43.5,41.5 L43.5,40.5 L49.5,40.5 Z M59.5,40.5 L59.5,41.5 L53.5,41.5 L53.5,40.5 L59.5,40.5 Z M69.5,40.5 L69.5,41.5 L63.5,41.5 L63.5,40.5 L69.5,40.5 Z M79.5,40.5 L79.5,41.5 L73.5,41.5 L73.5,40.5 L79.5,40.5 Z" fill="#000000" fill-rule="nonzero"></path>
+        <path id="Line-3" d="M184.809343,35.8190816 L185.245131,36.0642122 L193.245131,40.5642122 L194.019864,41 L193.245131,41.4357878 L185.245131,45.9357878 L184.809343,46.1809184 L184.319082,45.3093429 L184.754869,45.0642122 L191.98,40.999 L184.754869,36.9357878 L184.319082,36.6906571 L184.809343,35.8190816 Z M108.5,40.5 L108.5,41.5 L102.5,41.5 L102.5,40.5 L108.5,40.5 Z M118.5,40.5 L118.5,41.5 L112.5,41.5 L112.5,40.5 L118.5,40.5 Z M128.5,40.5 L128.5,41.5 L122.5,41.5 L122.5,40.5 L128.5,40.5 Z M138.5,40.5 L138.5,41.5 L132.5,41.5 L132.5,40.5 L138.5,40.5 Z M148.5,40.5 L148.5,41.5 L142.5,41.5 L142.5,40.5 L148.5,40.5 Z M158.5,40.5 L158.5,41.5 L152.5,41.5 L152.5,40.5 L158.5,40.5 Z M168.5,40.5 L168.5,41.5 L162.5,41.5 L162.5,40.5 L168.5,40.5 Z M178.5,40.5 L178.5,41.5 L172.5,41.5 L172.5,40.5 L178.5,40.5 Z M188.5,40.5 L188.5,41.5 L182.5,41.5 L182.5,40.5 L188.5,40.5 Z" fill="#000000" fill-rule="nonzero"></path>
+        <path id="Line-3" d="M271.809343,35.8190816 L272.245131,36.0642122 L280.245131,40.5642122 L281.019864,41 L280.245131,41.4357878 L272.245131,45.9357878 L271.809343,46.1809184 L271.319082,45.3093429 L271.754869,45.0642122 L278.98,40.999 L271.754869,36.9357878 L271.319082,36.6906571 L271.809343,35.8190816 Z M217.5,40.5 L217.5,41.5 L211.5,41.5 L211.5,40.5 L217.5,40.5 Z M227.5,40.5 L227.5,41.5 L221.5,41.5 L221.5,40.5 L227.5,40.5 Z M237.5,40.5 L237.5,41.5 L231.5,41.5 L231.5,40.5 L237.5,40.5 Z M247.5,40.5 L247.5,41.5 L241.5,41.5 L241.5,40.5 L247.5,40.5 Z M257.5,40.5 L257.5,41.5 L251.5,41.5 L251.5,40.5 L257.5,40.5 Z M267.5,40.5 L267.5,41.5 L261.5,41.5 L261.5,40.5 L267.5,40.5 Z M277.5,40.5 L277.5,41.5 L271.5,41.5 L271.5,40.5 L277.5,40.5 Z" fill="#000000" fill-rule="nonzero"></path>
+        <path id="Line-3" d="M353.309343,35.8190816 L353.745131,36.0642122 L361.745131,40.5642122 L362.519864,41 L361.745131,41.4357878 L353.745131,45.9357878 L353.309343,46.1809184 L352.819082,45.3093429 L353.254869,45.0642122 L360.48,40.999 L353.254869,36.9357878 L352.819082,36.6906571 L353.309343,35.8190816 Z M307.5,40.5 L307.5,41.5 L301.5,41.5 L301.5,40.5 L307.5,40.5 Z M317.5,40.5 L317.5,41.5 L311.5,41.5 L311.5,40.5 L317.5,40.5 Z M327.5,40.5 L327.5,41.5 L321.5,41.5 L321.5,40.5 L327.5,40.5 Z M337.5,40.5 L337.5,41.5 L331.5,41.5 L331.5,40.5 L337.5,40.5 Z M347.5,40.5 L347.5,41.5 L341.5,41.5 L341.5,40.5 L347.5,40.5 Z M357.5,40.5 L357.5,41.5 L351.5,41.5 L351.5,40.5 L357.5,40.5 Z" fill="#000000" fill-rule="nonzero"></path>
+        <text id="∅" font-family="AppleSymbols, Apple Symbols" font-size="22" font-weight="normal" fill="#040404">
+            <tspan x="366.109863" y="47">∅</tspan>
+        </text>
+    </g>
+</svg>

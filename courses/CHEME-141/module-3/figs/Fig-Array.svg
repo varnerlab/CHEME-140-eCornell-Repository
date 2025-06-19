@@ -46,7 +46,7 @@
                 <tspan x="53.65625" y="11">index</tspan>
             </text>
             <text id="value-stored-at-inde" font-family="ArialMT, Arial" font-size="10" font-weight="normal" fill="#E02020">
-                <tspan x="47.8598633" y="65">value stored at index</tspan>
+                <tspan x="45.6899414" y="64">value stored at index 1</tspan>
             </text>
             <text id="2" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
                 <tspan x="123.663086" y="11">2</tspan>

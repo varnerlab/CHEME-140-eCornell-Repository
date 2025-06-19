@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="578px" height="156px" viewBox="0 0 578 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Queue</title>
+    <g id="Queue" stroke="none" fill="none">
+        <g id="Group-6" stroke-width="1" fill-rule="evenodd" transform="translate(137, 70)">
+            <g id="Group-5" transform="translate(87, 0)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="16" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="5.32617188" y="16">16</tspan>
+                </text>
+            </g>
+            <text id="enqueue!(q,-)" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#040404">
+                <tspan x="0.296875" y="17">enqueue!(q,      )</tspan>
+            </text>
+        </g>
+        <g id="Group-7" stroke-width="1" fill-rule="evenodd" transform="translate(340, 70)">
+            <g id="Group-5" transform="translate(112, 0)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="2" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">2</tspan>
+                </text>
+            </g>
+            <text id="dequeue!(q)-=" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#040404">
+                <tspan x="2.9609375" y="18">dequeue!(q) = </tspan>
+            </text>
+        </g>
+        <g id="Group-9" stroke-width="1" fill-rule="evenodd" transform="translate(293, 3)">
+            <g id="Group-5" transform="translate(10, 106)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="16" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="5.32617188" y="16">16</tspan>
+                </text>
+            </g>
+            <g id="Group-2" transform="translate(10, 19)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="2" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">2</tspan>
+                </text>
+            </g>
+            <g id="Group-3" transform="translate(10, 48)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="4" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">4</tspan>
+                </text>
+            </g>
+            <g id="Group-4" transform="translate(10, 77)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="8" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">8</tspan>
+                </text>
+            </g>
+            <text id="top" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="12.269043" y="13">top</tspan>
+            </text>
+            <text id="bottom" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="0.600097656" y="146">bottom</tspan>
+            </text>
+        </g>
+        <g id="Group-8" stroke-width="1" fill-rule="evenodd" transform="translate(213, 24)">
+            <g id="Group-14">
+                <g id="Group" transform="translate(14, 0)">
+                    <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <text id="q" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#040404">
+                    <tspan x="0.55078125" y="18">q</tspan>
+                </text>
+            </g>
+            <path id="Line-3" d="M75.8093429,7.31908161 L76.2451306,7.56421223 L84.2451306,12.0642122 L85.0198644,12.5 L84.2451306,12.9357878 L76.2451306,17.4357878 L75.8093429,17.6809184 L75.3190816,16.8093429 L75.7548694,16.5642122 L82.98,12.5 L75.7548694,8.43578777 L75.3190816,8.19065715 L75.8093429,7.31908161 Z M30,12 L30,13 L24,13 L24,12 L30,12 Z M40,12 L40,13 L34,13 L34,12 L40,12 Z M50,12 L50,13 L44,13 L44,12 L50,12 Z M60,12 L60,13 L54,13 L54,12 L60,12 Z M70,12 L70,13 L64,13 L64,12 L70,12 Z M80,12 L80,13 L74,13 L74,12 L80,12 Z" fill="#000000" fill-rule="nonzero"></path>
+        </g>
+        <g id="Group-10" stroke-width="1" fill-rule="evenodd" transform="translate(81, 3)">
+            <g id="Group-2" transform="translate(10, 19)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="2" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">2</tspan>
+                </text>
+            </g>
+            <g id="Group-3" transform="translate(10, 48)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="4" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">4</tspan>
+                </text>
+            </g>
+            <g id="Group-4" transform="translate(10, 77)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="8" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">8</tspan>
+                </text>
+            </g>
+            <text id="bottom" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="0.600097656" y="117">bottom</tspan>
+            </text>
+            <text id="top" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="12.269043" y="13">top</tspan>
+            </text>
+        </g>
+        <g id="Group-8" stroke-width="1" fill-rule="evenodd" transform="translate(4, 24)">
+            <g id="Group-14">
+                <g id="Group" transform="translate(14, 0)">
+                    <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <text id="q" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#040404">
+                    <tspan x="0.55078125" y="18">q</tspan>
+                </text>
+            </g>
+            <path id="Line-3" d="M75.8093429,7.31908161 L76.2451306,7.56421223 L84.2451306,12.0642122 L85.0198644,12.5 L84.2451306,12.9357878 L76.2451306,17.4357878 L75.8093429,17.6809184 L75.3190816,16.8093429 L75.7548694,16.5642122 L82.98,12.5 L75.7548694,8.43578777 L75.3190816,8.19065715 L75.8093429,7.31908161 Z M30,12 L30,13 L24,13 L24,12 L30,12 Z M40,12 L40,13 L34,13 L34,12 L40,12 Z M50,12 L50,13 L44,13 L44,12 L50,12 Z M60,12 L60,13 L54,13 L54,12 L60,12 Z M70,12 L70,13 L64,13 L64,12 L70,12 Z M80,12 L80,13 L74,13 L74,12 L80,12 Z" fill="#000000" fill-rule="nonzero"></path>
+        </g>
+        <g id="Group-11" stroke-width="1" fill-rule="evenodd" transform="translate(515, 3)">
+            <g id="Group-2" transform="translate(10, 19)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="4" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">4</tspan>
+                </text>
+            </g>
+            <g id="Group-3" transform="translate(10, 48)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="8" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="8.66308594" y="16">8</tspan>
+                </text>
+            </g>
+            <g id="Group-4" transform="translate(10, 77)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <text id="16" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                    <tspan x="5.32617188" y="16">16</tspan>
+                </text>
+            </g>
+            <text id="top" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="12.269043" y="13">top</tspan>
+            </text>
+            <text id="bottom" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="0.600097656" y="117">bottom</tspan>
+            </text>
+        </g>
+        <g id="Group-8" stroke-width="1" fill-rule="evenodd" transform="translate(438, 24)">
+            <g id="Group-14">
+                <g id="Group" transform="translate(14, 0)">
+                    <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <text id="q" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#040404">
+                    <tspan x="0.55078125" y="18">q</tspan>
+                </text>
+            </g>
+            <path id="Line-3" d="M75.8093429,7.31908161 L76.2451306,7.56421223 L84.2451306,12.0642122 L85.0198644,12.5 L84.2451306,12.9357878 L76.2451306,17.4357878 L75.8093429,17.6809184 L75.3190816,16.8093429 L75.7548694,16.5642122 L82.98,12.5 L75.7548694,8.43578777 L75.3190816,8.19065715 L75.8093429,7.31908161 Z M30,12 L30,13 L24,13 L24,12 L30,12 Z M40,12 L40,13 L34,13 L34,12 L40,12 Z M50,12 L50,13 L44,13 L44,12 L50,12 Z M60,12 L60,13 L54,13 L54,12 L60,12 Z M70,12 L70,13 L64,13 L64,12 L70,12 Z M80,12 L80,13 L74,13 L74,12 L80,12 Z" fill="#000000" fill-rule="nonzero"></path>
+        </g>
+        <path id="Line-3" d="M267.809343,95.3190816 L268.245131,95.5642122 L276.245131,100.064212 L277.019864,100.5 L276.245131,100.935788 L268.245131,105.435788 L267.809343,105.680918 L267.319082,104.809343 L267.754869,104.564212 L274.091,101 L125,101 L125,100 L274.091,100 L267.754869,96.4357878 L267.319082,96.1906571 L267.809343,95.3190816 Z" fill="#000000" fill-rule="nonzero"></path>
+        <path id="Line-3" d="M504.809343,95.3190816 L505.245131,95.5642122 L513.245131,100.064212 L514.019864,100.5 L513.245131,100.935788 L505.245131,105.435788 L504.809343,105.680918 L504.319082,104.809343 L504.754869,104.564212 L511.089,101 L333,101 L333,100 L511.093,100 L504.754869,96.4357878 L504.319082,96.1906571 L504.809343,95.3190816 Z" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>
