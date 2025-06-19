@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="276px" height="75px" viewBox="0 0 276 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Array</title>
+    <g id="Array" stroke="none" fill="none" fill-rule="evenodd" stroke-width="1">
+        <g id="Group" transform="translate(4, 4)">
+            <rect id="Rectangle" stroke="#EF4035" x="179.5" y="19.5" width="23" height="23"></rect>
+            <text id="16" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="184.326172" y="35">16</tspan>
+            </text>
+            <text id="4" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="187.663086" y="11">4</tspan>
+            </text>
+            <rect id="Rectangle" stroke="#EF4035" x="211.5" y="19.5" width="23" height="23"></rect>
+            <text id="32" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="216.326172" y="35">32</tspan>
+            </text>
+            <text id="5" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="219.663086" y="11">5</tspan>
+            </text>
+            <rect id="Rectangle" stroke="#EF4035" x="243.5" y="19.5" width="23" height="23"></rect>
+            <text id="64" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="248.326172" y="35">64</tspan>
+            </text>
+            <text id="6" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="251.663086" y="11">6</tspan>
+            </text>
+            <rect id="Rectangle" stroke="#EF4035" x="83.5" y="19.5" width="23" height="23"></rect>
+            <text id="2" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="91.6630859" y="35">2</tspan>
+            </text>
+            <text id="1" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="91.6630859" y="11">1</tspan>
+            </text>
+            <g transform="translate(14, 19)">
+                <rect id="Rectangle" stroke="#EF4035" x="0.5" y="0.5" width="23" height="23"></rect>
+                <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+            </g>
+            <text id="a" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#040404">
+                <tspan x="0.55078125" y="37">a</tspan>
+            </text>
+            <rect id="Rectangle" stroke="#EF4035" x="115.5" y="19.5" width="23" height="23"></rect>
+            <text id="4" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="123.663086" y="35">4</tspan>
+            </text>
+            <text id="index" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="53.65625" y="11">index</tspan>
+            </text>
+            <text id="value-stored-at-inde" font-family="ArialMT, Arial" font-size="10" font-weight="normal" fill="#E02020">
+                <tspan x="47.8598633" y="65">value stored at index</tspan>
+            </text>
+            <text id="2" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="123.663086" y="11">2</tspan>
+            </text>
+            <rect id="Rectangle" stroke="#EF4035" x="147.5" y="19.5" width="23" height="23"></rect>
+            <text id="8" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="155.663086" y="35">8</tspan>
+            </text>
+            <text id="3" font-family="ArialMT, Arial" font-size="12" font-weight="normal" fill="#040404">
+                <tspan x="155.663086" y="11">3</tspan>
+            </text>
+            <path id="Line-3" d="M73.3093429,26.3190816 L73.7451306,26.5642122 L81.7451306,31.0642122 L82.5198644,31.5 L81.7451306,31.9357878 L73.7451306,36.4357878 L73.3093429,36.6809184 L72.8190816,35.8093429 L73.2548694,35.5642122 L79.589,32 L28.5,32 L28.5,31 L79.593,31 L73.2548694,27.4357878 L72.8190816,27.1906571 L73.3093429,26.3190816 Z" fill="#000000" fill-rule="nonzero"></path>
+            <line x1="94.5" y1="43.5" x2="94.5" y2="50.5" id="Line" stroke="#E02020" stroke-linecap="square"></line>
+        </g>
+    </g>
+</svg>
