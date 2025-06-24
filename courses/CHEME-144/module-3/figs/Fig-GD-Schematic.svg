@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="786px" height="514px" viewBox="0 0 786 514" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" fill="none">
+        <path id="Line" d="M73.0028208,7.21027256 L73.8728291,8.76062066 L80.6106922,20.7674396 L81.100072,21.6395104 L79.3559303,22.6182698 L78.8665506,21.746199 L73.996,13.067 L73.9886259,21.2495138 L73.4999995,504.501011 L73.4989884,505.501011 L71.4989894,505.498988 L71.5000005,504.498989 L71.9886269,21.2474915 L71.996,13.066 L67.1097077,21.7343114 L66.6185654,22.6053908 L64.8764067,21.6231063 L65.367549,20.7520269 L72.129679,8.75885813 L73.0028208,7.21027256 Z" fill="#000000" fill-rule="nonzero"></path>
+        <path id="Line" d="M640.375132,452.878927 L641.246318,453.369881 L653.240953,460.12941 L654.789728,461.002216 L653.239569,461.87256 L641.234211,468.613027 L640.362246,469.102596 L639.383109,467.358666 L640.255073,466.869098 L648.93,461.997 L640.750382,461.991065 L22.4992057,461.5 L21.499206,461.499205 L21.5007946,459.499206 L22.5007943,459.5 L640.751971,459.991066 L648.934,459.997 L640.264412,455.112252 L639.393226,454.621299 L640.375132,452.878927 Z" fill="#000000" fill-rule="nonzero"></path>
+        <text id="Parameters-𝛳" font-family="Helvetica" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="661" y="468">Parameters </tspan>
+            <tspan x="759.033203" y="468" font-family="STIXTwoMath-Regular, STIX Two Math">𝛳</tspan>
+        </text>
+        <text id="Objective-(loss)-fun" transform="translate(48.5, 119) rotate(-90) translate(-48.5, -119)" font-family="Helvetica" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="-48" y="126">Objective (loss) function</tspan>
+        </text>
+        <path d="M94.0501094,119 C92.2965032,301.860111 136.569191,352.909682 226.868172,272.148714 C296.577625,209.802462 357.431706,496.480987 472.18198,399.943468 C559.075519,326.841361 606.014859,279.31915 613,257.376834" id="Line-2" stroke="#000000" stroke-width="4" stroke-linecap="square"></path>
+        <circle id="Oval" stroke="#979797" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="159" cy="309" r="8"></circle>
+        <circle id="Oval" stroke="#EF4035" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="422" cy="420" r="8"></circle>
+        <line x1="422.5" y1="428.5" x2="422.5" y2="459.5" id="Line-3" stroke="#EF4035" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <line x1="596.5" y1="287.5" x2="596.5" y2="460.5" id="Line-3" stroke="#6EB43F" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <line x1="158.5" y1="318.5" x2="159" y2="461" id="Line-3" stroke="#979797" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <line x1="93.5" y1="164.5" x2="94.5" y2="461.5" id="Line-3" stroke="#0091FF" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <line x1="146" y1="309" x2="73" y2="309" id="Line-3" stroke="#979797" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <line x1="413" y1="420" x2="73" y2="420" id="Line-3" stroke="#EF4035" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <path id="Line-4" d="M632.404813,244.088993 L633.911007,245.404813 L633.253097,246.15791 L523.1061,372.241068 L517.772,378.346 L527.151055,375.025921 L528.093687,374.692088 L528.761353,376.577352 L527.818721,376.911185 L514.840401,381.507455 L513.16461,382.100936 L513.527639,380.360619 L516.339154,366.882567 L516.543358,365.903638 L518.501214,366.312046 L518.297011,367.290974 L516.264,377.032 L521.599907,370.925248 L631.746903,244.84209 L632.404813,244.088993 Z" fill="#6EB43F" fill-rule="nonzero"></path>
+        <path id="Line-4" d="M90.927844,113.432711 L90.9975664,114.430278 L103.218445,289.282851 L103.783,297.369 L108.04556,288.378452 L108.47386,287.474815 L110.281133,288.331415 L109.852833,289.235051 L103.955928,301.676475 L103.194507,303.28294 L102.217019,301.798011 L94.6467774,290.29784 L94.0969409,289.462568 L95.7674856,288.362895 L96.3173221,289.198167 L101.788,297.51 L101.223312,289.422296 L89.0024336,114.569722 L88.9327112,113.572156 L90.927844,113.432711 Z" fill="#0091FF" fill-rule="nonzero"></path>
+        <circle id="Oval" stroke="#6EB43F" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="596" cy="284" r="8"></circle>
+        <text id="𝛳1" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#E02020">
+            <tspan x="414" y="488">𝛳</tspan>
+            <tspan x="430.968" y="488">1</tspan>
+        </text>
+        <text id="𝛳0" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#6EB43F">
+            <tspan x="584" y="486">𝛳</tspan>
+            <tspan x="600.968" y="486">0</tspan>
+        </text>
+        <text id="𝛳0" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#6EB43F">
+            <tspan x="584" y="486">𝛳</tspan>
+            <tspan x="600.968" y="486">0</tspan>
+        </text>
+        <text id="𝛳3" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#0091FF">
+            <tspan x="81" y="486">𝛳</tspan>
+            <tspan x="97.968" y="486">3</tspan>
+        </text>
+        <text id="f(𝛳1)" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#E02020">
+            <tspan x="14" y="426">f(𝛳</tspan>
+            <tspan x="46.904" y="426">1</tspan>
+            <tspan x="58.784" y="426">)</tspan>
+        </text>
+        <text id="f(𝛳2)" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#6D7278">
+            <tspan x="15" y="315">f(𝛳</tspan>
+            <tspan x="47.904" y="315">2</tspan>
+            <tspan x="59.784" y="315">)</tspan>
+        </text>
+        <text id="𝛳2" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#6D7278">
+            <tspan x="150" y="486">𝛳</tspan>
+            <tspan x="166.968" y="486">2</tspan>
+        </text>
+        <text id="-∇𝛳f(𝛳0)" transform="translate(583.6144, 238.5954) rotate(-44) translate(-583.6144, -238.5954)" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#6EB43F">
+            <tspan x="535.614388" y="240.095404">-∇</tspan>
+            <tspan x="561.126388" y="240.095404">𝛳</tspan>
+            <tspan x="578.094388" y="240.095404">f(𝛳</tspan>
+            <tspan x="610.998388" y="240.095404">0</tspan>
+            <tspan x="622.878388" y="240.095404">)</tspan>
+        </text>
+        <text id="-∇𝛳f(𝛳3)" font-family="STIXTwoMath-Regular, STIX Two Math" font-size="24" font-weight="normal" fill="#0091FF">
+            <tspan x="112" y="164">-∇</tspan>
+            <tspan x="137.512" y="164">𝛳</tspan>
+            <tspan x="154.48" y="164">f(𝛳</tspan>
+            <tspan x="187.384" y="164">3</tspan>
+            <tspan x="199.264" y="164">)</tspan>
+        </text>
+        <line x1="595.5" y1="271" x2="595.5" y2="253" id="Line" stroke="#6EB43F" stroke-width="1" stroke-linecap="square"></line>
+        <circle id="Oval" stroke="#0091FF" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="94" cy="155" r="8"></circle>
+    </g>
+</svg>
