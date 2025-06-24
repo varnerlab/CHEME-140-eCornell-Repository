@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="655px" height="514px" viewBox="0 0 655 514" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" fill="none">
+        <path id="Line" d="M64.0028208,8.21027256 L64.8728291,9.76062066 L71.6106922,21.7674396 L72.100072,22.6395104 L70.3559303,23.6182698 L69.8665506,22.746199 L64.996,14.067 L64.9886259,22.2495138 L64.4999995,505.501011 L64.4989884,506.501011 L62.4989894,506.498988 L62.5000005,505.498989 L62.9886269,22.2474915 L62.996,14.066 L58.1097077,22.7343114 L57.6185654,23.6053908 L55.8764067,22.6231063 L56.367549,21.7520269 L63.129679,9.75885813 L64.0028208,8.21027256 Z" fill="#000000" fill-rule="nonzero"></path>
+        <path id="Line" d="M631.375132,453.878927 L632.246318,454.369881 L644.240953,461.12941 L645.789728,462.002216 L644.239569,462.87256 L632.234211,469.613027 L631.362246,470.102596 L630.383109,468.358666 L631.255073,467.869098 L639.93,462.997 L631.750382,462.991065 L13.4992057,462.5 L12.499206,462.499205 L12.5007946,460.499206 L13.5007943,460.5 L631.751971,460.991066 L639.934,460.997 L631.264412,456.112252 L630.393226,455.621299 L631.375132,453.878927 Z" fill="#000000" fill-rule="nonzero"></path>
+        <text id="Memories" font-family="Helvetica" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="538" y="489">Memories</tspan>
+        </text>
+        <text id="Energy-function-for" transform="translate(38.5, 228.5) rotate(-90) translate(-38.5, -228.5)" font-family="Helvetica" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="-132.5" y="235.5">Energy function for each configuration E(s)</tspan>
+        </text>
+        <path d="M85.0507812,120.078125 C101.174341,267.841433 122.824081,342.815391 150,345 C169.608219,346.576259 188.4907,299.191457 217.804687,273 C287.480469,210.746094 348.305155,497 463,400.605469 C549.851567,327.611639 596.768233,280.159816 603.75,258.25" id="Line-2" stroke="#000000" stroke-width="4" stroke-linecap="square"></path>
+        <circle id="Oval" stroke="#B620E0" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="90" cy="155" r="8"></circle>
+        <circle id="Oval" stroke="#EF4035" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="413" cy="421" r="8"></circle>
+        <line x1="413.5" y1="429.5" x2="413.5" y2="460.5" id="Line-3" stroke="#E02020" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <line x1="149.5" y1="344.5" x2="150" y2="461" id="Line-3" stroke="#0091FF" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <line x1="135" y1="345" x2="62" y2="345" id="Line-3" stroke="#0091FF" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <line x1="404" y1="421" x2="64" y2="421" id="Line-3" stroke="#EF4035" stroke-width="2" stroke-linecap="square" stroke-dasharray="4"></line>
+        <circle id="Oval" stroke="#0091FF" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="149" cy="345" r="8"></circle>
+        <circle id="Oval" stroke="#6EB43F" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="587" cy="285" r="8"></circle>
+        <text id="Memory-1" font-family="Helvetica" font-size="18" font-weight="normal" fill="#0091FF">
+            <tspan x="109" y="489">Memory 1</tspan>
+        </text>
+        <text id="Memory-2" font-family="Helvetica" font-size="18" font-weight="normal" fill="#E02020">
+            <tspan x="373" y="489">Memory 2</tspan>
+        </text>
+        <text id="Starting-Memory" font-family="Helvetica" font-size="18" font-weight="normal" fill="#6EB43F">
+            <tspan x="550.483398" y="199">Starting </tspan>
+            <tspan x="548.998047" y="221">Memory</tspan>
+        </text>
+        <text id="Starting-Memory" font-family="Helvetica" font-size="18" font-weight="normal" fill="#B620E0">
+            <tspan x="162" y="160">Starting Memory</tspan>
+        </text>
+        <line x1="586.5" y1="233.5" x2="586.5" y2="265.5" id="Line" stroke="#6EB43F" stroke-width="1" stroke-linecap="square"></line>
+        <line x1="155" y1="155" x2="108" y2="155" id="Line" stroke="#B620E0" stroke-width="1" stroke-linecap="square"></line>
+        <path id="Line" d="M91.0991901,163.167064 L91.4660631,165.133127 L107.551152,251.332708 L109.794,263.355 L114.726234,248.860371 L115.370361,246.966934 L119.157234,248.255188 L118.513107,250.148625 L111.122732,271.872916 L109.977617,275.239025 L107.695587,272.512432 L92.9677515,254.915461 L91.6841094,253.381752 L94.7515272,250.814468 L96.0351693,252.348177 L105.863,264.091 L103.619026,252.066455 L87.5339369,165.866873 L87.1670639,163.90081 L91.0991901,163.167064 Z" fill="#B620E0" fill-rule="nonzero"></path>
+        <path id="Line" d="M580.452539,290.565967 L583.246965,293.427991 L581.815953,294.825204 L526.374093,348.957589 L517.547,357.575 L532.340115,353.624143 L534.272349,353.107936 L535.304763,356.972405 L533.372529,357.488612 L511.203085,363.411301 L507.768001,364.329002 L508.767531,360.916831 L515.218327,338.895257 L515.780563,336.97591 L519.619256,338.100381 L519.05702,340.019728 L514.753,354.713 L523.579667,346.095565 L579.021527,291.96318 L580.452539,290.565967 Z" fill="#6EB43F" fill-rule="nonzero"></path>
+    </g>
+</svg>
