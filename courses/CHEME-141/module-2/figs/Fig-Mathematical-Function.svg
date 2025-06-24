@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="667px" height="312px" viewBox="0 0 667 312" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <defs>
+        <path d="M500.5,220 C541.645214,220 575,187.316787 575,147 C575,106.683213 541.645214,74 500.5,74 C459.354786,74 426,106.683213 426,147 C426,187.316787 459.354786,220 500.5,220 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="149" height="146" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Artboard" stroke="none" fill="none">
+        <ellipse id="Oval" stroke="#979797" stroke-width="1" fill="#D8D8D8" fill-rule="evenodd" cx="96.5" cy="132" rx="85" ry="77.5"></ellipse>
+        <ellipse id="Oval" stroke="#979797" stroke-width="1" fill="#D8D8D8" fill-rule="evenodd" cx="489" cy="155.5" rx="120.5" ry="110"></ellipse>
+        <use id="Oval" stroke="#EF4035" mask="url(#mask-2)" stroke-width="6" stroke-dasharray="4" xlink:href="#path-1"></use>
+        <circle id="Oval" stroke="#000000" stroke-width="1" fill="#000000" fill-rule="evenodd" cx="70.5" cy="114.5" r="4"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="1" fill="#000000" fill-rule="evenodd" cx="458.5" cy="113.5" r="4"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="1" fill="#000000" fill-rule="evenodd" cx="101.5" cy="185.5" r="4"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="1" fill="#000000" fill-rule="evenodd" cx="127.5" cy="152.5" r="4"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="1" fill="#000000" fill-rule="evenodd" cx="458.5" cy="150.5" r="4"></circle>
+        <circle id="Oval" stroke="#000000" stroke-width="1" fill="#000000" fill-rule="evenodd" cx="458.5" cy="187.5" r="4"></circle>
+        <path id="Line" d="M440.40267,97.0769693 L447.388,101.287 L442.478756,92.6322921 L441.985311,91.7625152 L443.724865,90.775625 L444.21831,91.6454019 L451.012146,103.620638 L451.889382,105.166908 L450.112403,105.113634 L436.350416,104.701048 L435.350865,104.671082 L435.410799,102.67198 L436.41035,102.701946 L446.356,103 L439.375111,98.792805 C367.139275,55.8048872 310.510527,34.6284465 269.553594,35.2314916 C226.778491,35.8613073 162.564573,60.8056769 76.9990775,110.08553 L76.1325202,110.584608 L75.1343651,108.851493 L76.0009225,108.352415 C161.839866,58.9150751 226.31853,33.8678629 269.52415,33.2317083 C310.935427,32.6219735 367.871772,53.9134407 440.40267,97.0769693 Z" fill="#000000" fill-rule="nonzero"></path>
+        <path id="Line" d="M440.128238,242.276731 L447.284,246.175 L442.002296,237.742317 L441.471444,236.894852 L443.166374,235.833149 L443.697226,236.680614 L451.006082,248.348652 L451.949818,249.855256 L450.172205,249.879411 L436.405306,250.066486 L435.405398,250.080073 L435.378223,248.080258 L436.378131,248.06667 L446.327,247.931 L439.17628,244.035636 C370.418053,207.063838 317.510778,188.987343 280.521395,189.778927 C241.780804,190.607988 185.584624,212.878593 112.010976,256.613627 L111.151382,257.124603 L110.129429,255.405414 L110.989024,254.894437 C184.835883,210.996996 241.306369,188.617684 280.478605,187.779385 C317.894238,186.978679 371.086874,205.152671 440.128238,242.276731 Z" transform="translate(280.5, 222.254) scale(1, -1) translate(-280.5, -222.254)" fill="#000000" fill-rule="nonzero"></path>
+        <path id="Line-2" d="M434.355554,143.907025 L435.227923,144.395873 L447.238847,151.126415 L448.789725,151.995479 L447.241672,152.869564 L435.252628,159.639004 L434.381848,160.130677 L433.398502,158.389118 L434.269282,157.897445 L442.935,153.004 L434.754021,153.018228 L137.501621,153.499999 L136.501622,153.501619 L136.498381,151.501622 L137.498379,151.500001 L434.750779,151.018231 L442.93,151.004 L434.250227,146.140611 L433.377858,145.651763 L434.355554,143.907025 Z" fill="#000000" fill-rule="nonzero"></path>
+        <text id="Domain-(input)" font-family="ArialMT, Arial" font-size="24" font-weight="normal" fill="#000000">
+            <tspan x="10.3027344" y="31">Domain (input)</tspan>
+        </text>
+        <text id="Codomain-(output)" font-family="ArialMT, Arial" font-size="24" font-weight="normal" fill="#000000">
+            <tspan x="389.613281" y="31">Codomain (output)</tspan>
+        </text>
+        <text id="f:-maps-domain-to-co" font-family="Arial-BoldMT, Arial" font-size="18" font-weight="bold" fill="#000000">
+            <tspan x="201.972656" y="175">f:</tspan>
+            <tspan x="213.960938" y="175" font-family="ArialMT, Arial" font-weight="normal"> maps domain to </tspan>
+            <tspan x="235.476562" y="195" font-family="ArialMT, Arial" font-weight="normal">codomain</tspan>
+        </text>
+        <text id="x1" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="39.4946289" y="120">x</tspan>
+            <tspan x="48.4946289" y="120">1</tspan>
+        </text>
+        <text id="x2" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="95.4946289" y="157">x</tspan>
+            <tspan x="104.494629" y="157">2</tspan>
+        </text>
+        <text id="x3" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="69.4946289" y="180">x</tspan>
+            <tspan x="78.4946289" y="180">3</tspan>
+        </text>
+        <text id="y1-=-f(x1)" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="471.237793" y="115">y</tspan>
+            <tspan x="480.237793" y="115">1</tspan>
+            <tspan x="490.248535" y="115"> = f(x</tspan>
+            <tspan x="530.757324" y="115">1</tspan>
+            <tspan x="540.768066" y="115">)</tspan>
+        </text>
+        <text id="y2-=-f(x2)" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="471.237793" y="152">y</tspan>
+            <tspan x="480.237793" y="152">2</tspan>
+            <tspan x="490.248535" y="152"> = f(x</tspan>
+            <tspan x="530.757324" y="152">2</tspan>
+            <tspan x="540.768066" y="152">)</tspan>
+        </text>
+        <text id="y3-=-f(x3)" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="471.237793" y="189">y</tspan>
+            <tspan x="480.237793" y="189">3</tspan>
+            <tspan x="490.248535" y="189"> = f(x</tspan>
+            <tspan x="530.757324" y="189">3</tspan>
+            <tspan x="540.768066" y="189">)</tspan>
+        </text>
+        <text id="Range" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#EF4035">
+            <tspan x="474.479004" y="243">Range</tspan>
+        </text>
+    </g>
+</svg>

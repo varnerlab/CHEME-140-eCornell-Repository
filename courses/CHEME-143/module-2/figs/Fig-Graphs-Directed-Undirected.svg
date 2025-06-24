@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="764px" height="233px" viewBox="0 0 764 233" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Graphs-Directed-Undirected</title>
+    <g id="Graphs-Directed-Undirected" stroke="none" fill="none" fill-rule="evenodd" stroke-width="1">
+        <g id="Group" transform="translate(7, 7)">
+            <line x1="26.5" y1="125.5" x2="102.5" y2="67.5" id="Line" stroke="#000000" stroke-linecap="square"></line>
+            <line x1="118.5" y1="62.5" x2="217.5" y2="62.5" id="Line" stroke="#000000" stroke-linecap="square"></line>
+            <line x1="117.5" y1="193.5" x2="221.5" y2="193.5" id="Line" stroke="#000000" stroke-linecap="square"></line>
+            <line x1="49" y1="125" x2="164.5" y2="124.5" id="Line" stroke="#000000" stroke-linecap="square" transform="translate(106.5, 124.5) scale(-1, -1) rotate(-90) translate(-106.5, -124.5)"></line>
+            <line x1="242.5" y1="62.5" x2="341.5" y2="62.5" id="Line" stroke="#000000" stroke-linecap="square"></line>
+            <g id="Group-3" transform="translate(14, 117)">
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+            </g>
+            <g id="Group-3" transform="translate(94, 51)">
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+            </g>
+            <g id="Group-3" transform="translate(218, 51)">
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+            </g>
+            <g id="Group-3" transform="translate(342, 50)">
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+            </g>
+            <g id="Group-3" transform="translate(94, 182)">
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+            </g>
+            <g id="Group-3" transform="translate(218, 182)">
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+            </g>
+            <text id="1" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="102.106934" y="42">1</tspan>
+            </text>
+            <text id="3" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="226.106934" y="42">3</tspan>
+            </text>
+            <text id="4" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="226.106934" y="221">4</tspan>
+            </text>
+            <text id="5" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="350.106934" y="42">5</tspan>
+            </text>
+            <text id="2" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="102.106934" y="221">2</tspan>
+            </text>
+            <line x1="26.5" y1="184.5" x2="97.5" y2="133.5" id="Line" stroke="#000000" stroke-linecap="square" transform="translate(62, 159) scale(1, -1) translate(-62, -159)"></line>
+            <line x1="117.5" y1="193.5" x2="221.5" y2="193.5" id="Line" stroke="#000000" stroke-linecap="square"></line>
+            <line x1="174" y1="132.5" x2="287" y2="132" id="Line" stroke="#000000" stroke-linecap="square" transform="translate(230.5, 132) scale(-1, -1) rotate(-90) translate(-230.5, -132)"></line>
+            <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="14.5" y="117.5" width="23" height="23"></rect>
+            <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="94.5" y="51.5" width="23" height="23"></rect>
+            <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="218.5" y="51.5" width="23" height="23"></rect>
+            <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="342.5" y="50.5" width="23" height="23"></rect>
+            <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="94.5" y="182.5" width="23" height="23"></rect>
+            <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="218.5" y="182.5" width="23" height="23"></rect>
+            <text id="0" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="0.106933594" y="135">0</tspan>
+            </text>
+            <text id="w01" transform="translate(52, 86) rotate(-36) translate(-52, -86)" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="39.1586914" y="88">w</tspan>
+                <tspan x="49.269043" y="88">01</tspan>
+            </text>
+            <text id="w13" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="156.158691" y="51">w</tspan>
+                <tspan x="166.269043" y="51">13</tspan>
+            </text>
+            <text id="w35" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="279.158691" y="51">w</tspan>
+                <tspan x="289.269043" y="51">35</tspan>
+            </text>
+            <text id="w24" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="156.158691" y="183">w</tspan>
+                <tspan x="166.269043" y="183">24</tspan>
+            </text>
+            <text id="w02" transform="translate(52, 172) rotate(33) translate(-52, -172)" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                <tspan x="39.1586914" y="174">w</tspan>
+                <tspan x="49.269043" y="174">02</tspan>
+            </text>
+            <text id="Undirected-Graph" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="94.9624023" y="16">Undirected Graph</tspan>
+            </text>
+        </g>
+        <g id="Group-2" transform="translate(390, 7)">
+            <g id="Group" transform="translate(0, 29)">
+                <g id="Group-3" transform="translate(14, 85)">
+                    <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <g id="Group-3" transform="translate(94, 19)">
+                    <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <g id="Group-3" transform="translate(218, 19)">
+                    <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <g id="Group-3" transform="translate(342, 18)">
+                    <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <g id="Group-3" transform="translate(94, 150)">
+                    <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <g id="Group-3" transform="translate(218, 150)">
+                    <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="0.5" y="0.5" width="23" height="23"></rect>
+                    <circle id="Oval" fill="#000000" cx="12" cy="12" r="3"></circle>
+                </g>
+                <text id="4" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="226.106934" y="192">4</tspan>
+                </text>
+                <text id="2" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="102.106934" y="192">2</tspan>
+                </text>
+                <path id="Line" d="M91.6976902,42.5643045 L91.3554712,43.3846762 L87.8216744,51.8559382 L87.6291763,52.3173972 L86.7062582,51.9324009 L86.8987563,51.4709418 L89.698,44.76 L84.9479797,48.472014 L26.807822,93.8940122 L26.4138098,94.2018342 L25.7981658,93.4138098 L26.192178,93.1059878 L84.3323356,47.6839897 L89.081,43.973 L81.8945402,45.0655452 L81.4002157,45.1406665 L81.2499732,44.1520173 L81.7442978,44.076896 L90.8188909,42.6978534 L91.6976902,42.5643045 Z" fill="#000000" fill-rule="nonzero"></path>
+                <path id="Line" d="M91.7158915,100.588081 L91.3575772,101.401552 L87.6575772,109.801552 L87.4560253,110.259129 L86.540871,109.856025 L86.7424228,109.398448 L89.673,102.745 L84.8509711,106.361772 L26.8,149.9 L26.4,150.2 L25.8,149.4 L26.2,149.1 L84.2509711,105.561772 L89.073,101.944 L81.8653682,102.895709 L81.3696596,102.961077 L81.2389232,101.96966 L81.7346318,101.904291 L90.8346318,100.704291 L91.7158915,100.588081 Z" transform="translate(58.5, 125.5) scale(1, -1) translate(-58.5, -125.5)" fill="#000000" fill-rule="nonzero"></path>
+                <path id="Line" d="M205.809343,25.3190816 L206.245131,25.5642122 L214.245131,30.0642122 L215.019864,30.5 L214.245131,30.9357878 L206.245131,35.4357878 L205.809343,35.6809184 L205.319082,34.8093429 L205.754869,34.5642122 L212.091,31 L118,31 L118,30 L212.091,30 L205.754869,26.4357878 L205.319082,26.1906571 L205.809343,25.3190816 Z" fill="#000000" fill-rule="nonzero"></path>
+                <path id="Line" d="M205.809343,156.819082 L206.245131,157.064212 L214.245131,161.564212 L215.019864,162 L214.245131,162.435788 L206.245131,166.935788 L205.809343,167.180918 L205.319082,166.309343 L205.754869,166.064212 L212.091,162.5 L117,162.5 L117,161.5 L212.091,161.5 L205.754869,157.935788 L205.319082,157.690657 L205.809343,156.819082 Z" fill="#000000" fill-rule="nonzero"></path>
+                <path id="Line" d="M154.285979,84.8539336 L154.722871,85.0970899 L162.743151,89.5608451 L163.519849,89.9931229 L162.747095,90.4324117 L154.767539,94.9685644 L154.332864,95.2156643 L153.838664,94.3463161 L154.273339,94.0992161 L160.593,90.506 L154.506728,90.5339113 L51.5022624,90.9999949 L51.0022675,91.0022573 L50.9977427,90.0022675 L51.4977376,90.0000051 L154.502203,89.5339216 L160.589,89.506 L154.236559,85.9708749 L153.799666,85.7277186 L154.285979,84.8539336 Z" transform="translate(106.5, 90) scale(-1, -1) rotate(-90) translate(-106.5, -90)" fill="#000000" fill-rule="nonzero"></path>
+                <path id="Line" d="M181.190657,97.8190816 L181.680918,98.6906571 L181.245131,98.9357878 L174.908,102.5 L287,102.5 L287,103.5 L174.908,103.5 L181.245131,107.064212 L181.680918,107.309343 L181.190657,108.180918 L180.754869,107.935788 L172.754869,103.435788 L171.980136,103 L172.754869,102.564212 L180.754869,98.0642122 L181.190657,97.8190816 Z" transform="translate(230, 103) scale(-1, -1) rotate(-90) translate(-230, -103)" fill="#000000" fill-rule="nonzero"></path>
+                <path id="Line" d="M330.809343,25.3190816 L331.245131,25.5642122 L339.245131,30.0642122 L340.019864,30.5 L339.245131,30.9357878 L331.245131,35.4357878 L330.809343,35.6809184 L330.319082,34.8093429 L330.754869,34.5642122 L337.091,31 L242,31 L242,30 L337.091,30 L330.754869,26.4357878 L330.319082,26.1906571 L330.809343,25.3190816 Z" fill="#000000" fill-rule="nonzero"></path>
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="14.5" y="85.5" width="23" height="23"></rect>
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="94.5" y="19.5" width="23" height="23"></rect>
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="218.5" y="19.5" width="23" height="23"></rect>
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="342.5" y="18.5" width="23" height="23"></rect>
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="94.5" y="150.5" width="23" height="23"></rect>
+                <rect id="Rectangle" stroke="#EF4035" fill="#FFFFFF" x="218.5" y="150.5" width="23" height="23"></rect>
+                <text id="w01" transform="translate(52, 54) rotate(-36) translate(-52, -54)" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="39.1586914" y="56">w</tspan>
+                    <tspan x="49.269043" y="56">01</tspan>
+                </text>
+                <text id="w13" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="156.158691" y="19">w</tspan>
+                    <tspan x="166.269043" y="19">13</tspan>
+                </text>
+                <text id="w35" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="279.158691" y="19">w</tspan>
+                    <tspan x="289.269043" y="19">35</tspan>
+                </text>
+                <text id="w24" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="156.158691" y="151">w</tspan>
+                    <tspan x="166.269043" y="151">24</tspan>
+                </text>
+                <text id="w02" transform="translate(52, 140) rotate(33) translate(-52, -140)" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="39.1586914" y="142">w</tspan>
+                    <tspan x="49.269043" y="142">02</tspan>
+                </text>
+                <text id="0" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="0.106933594" y="103">0</tspan>
+                </text>
+                <text id="0" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="0.106933594" y="103">0</tspan>
+                </text>
+                <text id="1" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="102.106934" y="13">1</tspan>
+                </text>
+                <text id="3" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="226.106934" y="13">3</tspan>
+                </text>
+                <text id="5" font-family="ArialMT, Arial" font-size="14" font-weight="normal" fill="#040404">
+                    <tspan x="350.106934" y="13">5</tspan>
+                </text>
+            </g>
+            <text id="Directed-Acyclic-Gra" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#040404">
+                <tspan x="77.9672852" y="16">Directed Acyclic Graph</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

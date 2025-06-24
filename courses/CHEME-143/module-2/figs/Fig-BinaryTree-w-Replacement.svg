@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="354px" height="489px" viewBox="0 0 354 489" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" fill="none">
+        <line x1="60.019018" y1="67" x2="59" y2="441.998615" id="Line-2" stroke="#89CCE1" stroke-width="1" stroke-linecap="square" stroke-dasharray="5"></line>
+        <line x1="138.5" y1="67" x2="138.5" y2="442" id="Line-2" stroke="#EF4034" stroke-width="1" stroke-linecap="square" stroke-dasharray="5"></line>
+        <line x1="216.5" y1="67" x2="216.5" y2="442" id="Line-2" stroke="#EF4034" stroke-width="1" stroke-linecap="square" stroke-dasharray="5"></line>
+        <line x1="298.5" y1="67" x2="298.5" y2="442" id="Line-2" stroke="#EF4034" stroke-width="1" stroke-linecap="square" stroke-dasharray="5"></line>
+        <line x1="55.0642291" y1="244.433509" x2="303.606385" y2="104.96381" id="Line" stroke="#545558" stroke-width="2" stroke-linecap="square" transform="translate(179.3353, 174.6987) rotate(-3.701) translate(-179.3353, -174.6987)"></line>
+        <line x1="131.584255" y1="295.94837" x2="300.767337" y2="201.011101" id="Line" stroke="#545558" stroke-width="2" stroke-linecap="square" transform="translate(216.1758, 248.4797) rotate(-3.701) translate(-216.1758, -248.4797)"></line>
+        <line x1="138.337394" y1="294.30799" x2="300.351055" y2="203.39385" id="Line" stroke="#545558" stroke-width="2" stroke-linecap="square" transform="translate(219.3442, 248.8509) scale(1, -1) rotate(-3.701) translate(-219.3442, -248.8509)"></line>
+        <line x1="218.974328" y1="195.642235" x2="295.525312" y2="152.685568" id="Line" stroke="#545558" stroke-width="2" stroke-linecap="square" transform="translate(257.2498, 174.1639) scale(1, -1) rotate(-3.701) translate(-257.2498, -174.1639)"></line>
+        <line x1="212.154392" y1="350.546138" x2="299.362166" y2="301.609402" id="Line" stroke="#545558" stroke-width="2" stroke-linecap="square" transform="translate(255.7583, 326.0778) rotate(-3.701) translate(-255.7583, -326.0778)"></line>
+        <line x1="55.0642291" y1="400.03619" x2="303.606385" y2="260.566491" id="Line" stroke="#545558" stroke-width="2" stroke-linecap="square" transform="translate(179.3353, 330.3013) scale(1, -1) rotate(-3.701) translate(-179.3353, -330.3013)"></line>
+        <circle id="Oval" stroke="#89CCE1" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" cx="60" cy="253" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="138" cy="301" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="216" cy="355" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="138" cy="199" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="216" cy="248" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="216" cy="147" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="298" cy="408" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="298" cy="298" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="298" cy="196" r="11"></circle>
+        <circle id="Oval" stroke="#EF4034" stroke-width="2" fill="#FFFCFC" fill-rule="evenodd" cx="298" cy="97" r="11"></circle>
+        <text id="t-=-0-(now)" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="17" y="468">t = 0 (now)</tspan>
+        </text>
+        <text id="t-=-1" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="120" y="468">t = 1</tspan>
+        </text>
+        <text id="t-=-2" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="198" y="468">t = 2</tspan>
+        </text>
+        <text id="t-=-3" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#000000">
+            <tspan x="280" y="468">t = 3</tspan>
+        </text>
+        <text id="(u,p)" transform="translate(91.1756, 209.7809) rotate(-33) translate(-91.1756, -209.7809)" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="74.6756431" y="215.280933">(u,p)</tspan>
+        </text>
+        <text id="(d,1---p)" transform="translate(102.6951, 263.4328) rotate(33) translate(-102.6951, -263.4328)" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="74.1950509" y="268.932791">(d,1 - p)</tspan>
+        </text>
+        <text id="future" font-family="Helvetica-Light, Helvetica" font-size="20" font-weight="300" fill="#DB4D2A">
+            <tspan x="191.61" y="27">future</tspan>
+        </text>
+        <path id="Line-3" d="M295.868686,34.3881632 L296.740261,34.8784245 L308.740261,41.6284245 L310.289729,42.5 L308.740261,43.3715755 L296.740261,50.1215755 L295.868686,50.6118368 L294.888163,48.8686857 L295.759739,48.3784245 L304.432,43.5 L140.5,43.5 L140.5,41.5 L304.432,41.5 L295.759739,36.6215755 L294.888163,36.1313143 L295.868686,34.3881632 Z" fill="#F0463B" fill-rule="nonzero"></path>
+        <text id="today" transform="translate(41.5, 97) rotate(-90) translate(-41.5, -97)" font-family="ArialMT, Arial" font-size="18" font-weight="normal" fill="#89CCE1">
+            <tspan x="19" y="103">today</tspan>
+        </text>
+    </g>
+</svg>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="222px" height="247px" viewBox="0 0 222 247" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Ternary-tree</title>
+    <g id="Ternary-tree" stroke="none" fill="none">
+        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(70, 24)" stroke="#979797">
+            <circle id="Oval" fill="#BDBBBB" cx="43" cy="47" r="5.5"></circle>
+            <circle id="Oval" fill="#BDBBBB" cx="53" cy="6" r="5.5"></circle>
+            <circle id="Oval" fill="#BDBBBB" cx="12" cy="12" r="5.5"></circle>
+            <circle id="Oval" fill="#BDBBBB" transform="translate(6, 183) scale(-1, 1) rotate(90) translate(-6, -183)" cx="6" cy="183" r="5.5"></circle>
+            <circle id="Oval" fill="#C9D6A5" transform="translate(88, 125) scale(-1, 1) rotate(90) translate(-88, -125)" cx="88" cy="125" r="5.5"></circle>
+            <circle id="Oval" fill="#BDBBBB" transform="translate(36, 155) scale(-1, 1) rotate(90) translate(-36, -155)" cx="36" cy="155" r="5.5"></circle>
+            <circle id="Oval" fill="#C9D6A5" transform="translate(88, 77) scale(-1, 1) rotate(90) translate(-88, -77)" cx="88" cy="77" r="5.5"></circle>
+            <circle id="Oval" fill="#BDBBBB" transform="translate(41, 191) scale(-1, 1) rotate(90) translate(-41, -191)" cx="41" cy="191" r="5.5"></circle>
+            <circle id="Oval" fill="#C9D6A5" transform="translate(122, 100) scale(-1, 1) rotate(90) translate(-122, -100)" cx="122" cy="100" r="5.5"></circle>
+        </g>
+        <g id="Group-2" stroke-width="1" fill-rule="evenodd" transform="translate(31, 33.6314)" stroke="#000000" stroke-linecap="square">
+            <line x1="1.28575629" y1="85.0529241" x2="35.8775057" y2="48.174059" id="Line"></line>
+            <line x1="45" y1="40.7973512" x2="88.473336" y2="2.39849549e-17" id="Line"></line>
+            <line x1="44" y1="177.286205" x2="74.2857563" y2="142.541778" id="Line" transform="translate(59.5, 159.7974) scale(1, -1) translate(-59.5, -159.7974)"></line>
+            <line x1="96" y1="89.2862053" x2="154.285756" y2="89.5417783" id="Line" transform="translate(125.5, 89.7974) scale(1, -1) translate(-125.5, -89.7974)"></line>
+            <line x1="0.285756286" y1="134.541778" x2="35.2857563" y2="93.5417783" id="Line" transform="translate(18, 113.7974) scale(1, -1) translate(-18, -113.7974)"></line>
+            <line x1="5.28575629" y1="90.0529241" x2="86.2857563" y2="90.0529241" id="Line" transform="translate(45.7858, 90.0529) scale(1, -1) translate(-45.7858, -90.0529)"></line>
+            <line x1="40.2857563" y1="144.052924" x2="43.2857563" y2="167.052924" id="Line-2"></line>
+            <line x1="46.2857563" y1="139.052924" x2="67.2857563" y2="144.052924" id="Line-2" transform="translate(56.7858, 141.5529) scale(-1, -1) translate(-56.7858, -141.5529)"></line>
+            <line x1="94.2857563" y1="86.0529241" x2="120.285756" y2="69.0529241" id="Line-2" transform="translate(107.2858, 77.5529) scale(-1, -1) translate(-107.2858, -77.5529)"></line>
+            <line x1="94.2857563" y1="95.0529241" x2="120.285756" y2="112.052924" id="Line-2" transform="translate(107.2858, 103.5529) scale(-1, -1) translate(-107.2858, -103.5529)"></line>
+            <line x1="46.2857563" y1="39.0529241" x2="74.2857563" y2="44.0529241" id="Line-2" transform="translate(60.2858, 41.5529) scale(1, -1) translate(-60.2858, -41.5529)"></line>
+            <line x1="31.5445544" y1="16.8530294" x2="58.2634819" y2="29.8588382" id="Line-2" transform="translate(44.7635, 23.3588) scale(1, -1) rotate(-130.0362) translate(-44.7635, -23.3588)"></line>
+        </g>
+        <circle id="Oval" fill="#EF4035" fill-rule="evenodd" cx="31" cy="123" r="6"></circle>
+        <circle id="Oval" fill="#EF4035" fill-rule="evenodd" cx="72" cy="171" r="6"></circle>
+        <circle id="Oval" stroke="#979797" stroke-width="1" fill="#C9D6A5" fill-rule="evenodd" cx="122" cy="124" r="5.5"></circle>
+        <circle id="Oval" fill="#EF4035" fill-rule="evenodd" cx="72" cy="78" r="6"></circle>
+        <circle id="Oval" fill="#EF4035" fill-rule="evenodd" cx="72" cy="78" r="6"></circle>
+        <text id="0" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="8.55078125" y="130">0</tspan>
+        </text>
+        <text id="1" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="52.5507812" y="75">1</tspan>
+        </text>
+        <text id="4" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="71.5507812" y="24">4</tspan>
+        </text>
+        <text id="5" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="128.550781" y="21">5</tspan>
+        </text>
+        <text id="7" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="171.550781" y="98">7</tspan>
+        </text>
+        <text id="8" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="205.550781" y="130">8</tspan>
+        </text>
+        <text id="9" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="171.550781" y="161">9</tspan>
+        </text>
+        <text id="10" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="119.101562" y="186">10</tspan>
+        </text>
+        <text id="11" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="119.695312" y="235">11</tspan>
+        </text>
+        <text id="12" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="66.1015625" y="233">12</tspan>
+        </text>
+        <text id="6" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="123.550781" y="74">6</tspan>
+        </text>
+        <text id="2" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="106.550781" y="113">2</tspan>
+        </text>
+        <text id="3" font-family="ArialMT, Arial" font-size="16" font-weight="normal" fill="#000000">
+            <tspan x="52.5507812" y="185">3</tspan>
+        </text>
+    </g>
+</svg>
