@@ -16,6 +16,7 @@ end
 
 # load external package -
 using VLDataScienceMachineLearningPackage
+using Test
 using JLD2
 using FileIO
 using DataFrames
@@ -25,3 +26,5 @@ using Statistics
 using UnicodePlots
 using BenchmarkTools
 using DataStructures
+using Plots
+using Colors
