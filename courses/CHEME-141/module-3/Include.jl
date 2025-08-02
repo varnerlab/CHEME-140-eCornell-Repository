@@ -2,7 +2,7 @@
 const _ROOT = @__DIR__;
 const _PATH_TO_DATA = joinpath(_ROOT, "data");
 const _PATH_TO_SRC = joinpath(_ROOT, "src");
-const _PATH_TO_SOUNDS = joinpath(_ROOT, "sounds");
+const _PATH_TO_SIMS = joinpath(_ROOT, "simulation_figs");
 
 # if we are missing any packages, install them -
 using Pkg;
@@ -29,3 +29,4 @@ using DataStructures
 using Plots
 using Colors
 using ProgressMeter
+using IJulia
