@@ -18,3 +18,6 @@ using FileIO
 using KernelFunctions
 using PrettyTables
 using DataFrames
+using Test
+using Random
+using Statistics
