@@ -32,7 +32,7 @@ using Distributions
 using Images
 using ImageInTerminal
 using ImageShow
-# using Graphs
-# using GraphIO
-# using Karnak
-# using NetworkLayout
+using Graphs
+using GraphIO
+using Karnak
+using NetworkLayout
