@@ -32,6 +32,9 @@ using Distributions
 using Images
 using ImageInTerminal
 using ImageShow
+using Statistics
+
+# For 
 # using Graphs
 # using GraphIO
 # using Karnak

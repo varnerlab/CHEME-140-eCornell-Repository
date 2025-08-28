@@ -36,3 +36,4 @@ using Graphs
 using GraphIO
 using Karnak
 using NetworkLayout
+using UnicodePlots
