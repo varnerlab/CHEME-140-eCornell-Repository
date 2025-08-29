@@ -15,3 +15,4 @@ using VLDataScienceMachineLearningPackage
 using LinearAlgebra
 using BenchmarkTools
 using Statistics
+using Test
