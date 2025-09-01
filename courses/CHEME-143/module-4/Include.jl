@@ -16,3 +16,9 @@ using LinearAlgebra
 using BenchmarkTools
 using Statistics
 using Test
+using Images
+using TestImages
+using ImageMagick
+using ImageIO
+using DelimitedFiles
+using Plots
