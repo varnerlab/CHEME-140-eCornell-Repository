@@ -23,3 +23,7 @@ using ImageIO
 using DelimitedFiles
 using Plots
 using DataFrames
+using Random
+
+# setup random number generator -
+Random.seed!(1234); # seed the random number generator for reproducibility
