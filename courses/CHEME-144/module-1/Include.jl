@@ -25,6 +25,7 @@ using Plots
 using DataFrames
 using Random
 using Distributions
+using PrettyTables
 
 # setup random number generator -
 Random.seed!(1234); # seed the random number generator for reproducibility
