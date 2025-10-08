@@ -14,6 +14,8 @@ using Plots
 using Colors
 using LinearAlgebra
 using Statistics
+using DataFrames
+using PrettyTables
 
 # load my codes -
 # ...
