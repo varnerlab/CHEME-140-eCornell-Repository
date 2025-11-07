@@ -20,3 +20,6 @@ using LinearAlgebra
 using Statistics
 using DataFrames
 using PrettyTables
+using Random
+
+Random.seed!(1234); # set the random seed for reproducibility
