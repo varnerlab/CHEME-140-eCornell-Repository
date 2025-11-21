@@ -5,7 +5,7 @@
 function _http_get_call_with_url(url::String)::String
 
     # should we check if this string is formatted as a URL?
-    if (occursin("https://", url) == false)
+    if (occursin("http", url) == false)
         throw(ArgumentError("url $(url) is not properly formatted"))
     end
 
@@ -32,6 +32,19 @@ function _api(model::Type{T}, complete_url_string::String;
     # process and return -
     return handler(model, result_string)
 end
+
+# This function calls the HTTP GET call, and then processes the response.
+# We use a default handler, but you can pass in your own if you want to process the response differently.
+function _api(model::Type{T}, complete_url_string::String;
+    handler::Function = _default_handler_process_bigg_response) where T <: AbstractBiggEndpointModel
+
+    # execute the HTTP GET call. This is a blocking call, it uses the HTTP.jl package
+    # For more information on the HTTP.jl package, see: https://github.com/JuliaWeb/HTTP.jl
+    result_string = _http_get_call_with_url(complete_url_string);
+
+    # process and return -
+    return handler(model, result_string)
+end
 # --- PRIVATE METHODS ABOVE HERE ------------------------------------------------------------------------------- #
 
 # --- PUBLIC METHODS BELOW HERE -------------------------------------------------------------------------------- #
@@ -40,4 +53,9 @@ end
 # We are using the Julia type system (and something called multiple dispatch) to call the correct method.
 # For more information on multiple dispatch, see: https://docs.julialang.org/en/v1/manual/methods/#Defining-Methods
 (endpoint::Type{T})(url::String; handler::Function = _default_handler_process_weather_response) where T <: AbstractWeatherEndpointModel = _api(endpoint, url, handler = handler)
+
+# New pattern: This makes it look we are calling a method on an struct, but we are not!
+# We are using the Julia type system (and something called multiple dispatch) to call the correct method.
+# For more information on multiple dispatch, see: https://docs.julialang.org/en/v1/manual/methods/#Defining-Methods
+(endpoint::Type{T})(url::String; handler::Function = _default_handler_process_bigg_response) where T <: AbstractBiggEndpointModel = _api(endpoint, url, handler = handler)
 # --- PUBLIC METHODS ABOVE HERE -------------------------------------------------------------------------------- #

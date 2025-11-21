@@ -1,4 +1,5 @@
 abstract type AbstractWeatherEndpointModel end
+abstract type AbstractBiggEndpointModel end
 
 """
     mutable struct MyWeatherGridPointEndpointModel <: AbstractWeatherEndpointModel
@@ -30,4 +31,21 @@ A model for the weather forecast endpoint. This type is empty, with no fields.
 """
 mutable struct MyWeatherForecastEndpointModel <: AbstractWeatherEndpointModel
     MyWeatherForecastEndpointModel() = new(); # empty
+end
+
+
+
+struct MyBiggModelsEndpointModel <: AbstractBiggEndpointModel
+
+    # methods -
+    MyBiggModelsEndpointModel() = new();
+end
+
+mutable struct MyBiggModelsDownloadModelEndpointModel <: AbstractBiggEndpointModel
+
+    # data -
+    bigg_id::String
+
+    # methods -
+    MyBiggModelsDownloadModelEndpointModel() = new();
 end

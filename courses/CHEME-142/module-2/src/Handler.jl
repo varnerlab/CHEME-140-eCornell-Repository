@@ -18,6 +18,26 @@ function _default_handler_process_weather_response(model::Type{T},
     # default: return nothing
     return nothing
 end
+
+function _default_handler_process_bigg_response(model::Type{T}, 
+    response::String) where T <: AbstractBiggEndpointModel
+
+    # initialize -
+    type_handler_dict = Dict{Any,Function}()
+
+    # hardcode the response handler -
+    type_handler_dict[MyBiggModelsEndpointModel] = (x::String) -> JSON.parse(x) # default handler
+    type_handler_dict[MyBiggModelsDownloadModelEndpointModel] = (x::String) -> JSON.parse(x) # default handler
+
+    # lookup the function to handle the response -
+    if (haskey(type_handler_dict, model) == true)
+        handler_function = type_handler_dict[model]
+        return handler_function(response);
+    end
+
+    # default: return nothing
+    return nothing
+end
 # --- PRIVATE METHODS ABOVE HERE ------------------------------------------------------------------------------- #
 
 # --- PUBLIC METHODS BELOW HERE -------------------------------------------------------------------------------- #
