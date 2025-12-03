@@ -24,3 +24,4 @@ docs/site/
 Manifest.toml
 courses/.DS_Store
 courses/CHEME-141/module-4/data/my_sms_tfidf_vectors.jld2
+.DS_Store
