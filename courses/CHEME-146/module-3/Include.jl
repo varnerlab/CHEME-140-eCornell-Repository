@@ -29,3 +29,4 @@ using Distributions
 using PrettyTables
 using DataFrames
 using StatsBase
+using IJulia
