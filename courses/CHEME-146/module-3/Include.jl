@@ -27,3 +27,5 @@ using Distances
 using NNlib
 using Distributions
 using PrettyTables
+using DataFrames
+using StatsBase
