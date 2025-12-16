@@ -26,3 +26,6 @@ using Distributions
 using PrettyTables
 using DataFrames
 using StatsBase
+using YAML
+using TOML
+using JSON
