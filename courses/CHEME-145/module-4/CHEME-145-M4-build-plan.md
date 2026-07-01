@@ -641,9 +641,19 @@ git commit -m "M4: value iteration, policy iteration, Q/policy + tests"
     @test mdp.R[s, 4] == 100.0;
     @test mdp.T[s, world.states[(3,3)], 4] == 1.0;
 
-    # value iteration policy sends (3,2) up into the goal -
+    # absorbing cells self-loop with zero reward (value-to-go 0) -
+    for cell ∈ absorbing
+        sc = world.states[cell];
+        for a ∈ mdp.𝒜
+            @test mdp.R[sc, a] == 0.0;
+            @test mdp.T[sc, sc, a] == 1.0;
+        end
+    end
+
+    # value iteration policy sends (3,2) up into the goal; absorbing goal has V=0 -
     sol = solve(build(MyValueIterationModel, (maxiterations=10_000, ϵ=1e-8)), mdp);
     @test policy(Q(mdp, sol.V))[s] == 4;
+    @test isapprox(sol.V[world.states[(3,3)]], 0.0; atol=1e-9);
 end
 ```
 
@@ -660,8 +670,9 @@ Expected: FAIL — `build_mdp` not defined.
         -> MyMDPProblemModel
 
 Construct a deterministic-move MDP from a grid world. A move to a valid non-absorbing cell earns that
-cell's reward (or `step_reward`); a move off the grid earns `offgrid_penalty` and self-loops;
-absorbing cells self-loop.
+cell's reward (or `step_reward`); a move off the grid earns `offgrid_penalty` and self-loops. Absorbing
+cells self-loop with zero reward, so their value-to-go is `V=0` (the terminal reward is earned on the
+step INTO the cell, not while sitting in it).
 """
 function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
     step_reward::Float64 = -1.0, offgrid_penalty::Float64 = -1000.0,
@@ -680,21 +691,29 @@ function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
         Δ = world.moves[a];
         for s ∈ 𝒮
             current = world.coordinates[s];
+
+            # absorbing cells: zero future reward, self-loop (so V(absorbing) = 0) -
+            if (in(current, absorbing) == true)
+                R[s, a] = 0.0;
+                T[s, s, a] = 1.0;
+                continue;
+            end
+
             newpos = current .+ Δ;
 
-            # reward -
+            # reward (current is non-absorbing) -
             if (haskey(world.states, newpos) == true)
                 R[s,a] = haskey(rewards, newpos) ? rewards[newpos] : step_reward;
             else
                 R[s,a] = offgrid_penalty;
             end
 
-            # transition -
-            if (haskey(world.states, newpos) == true && in(current, absorbing) == false)
+            # transition (current is non-absorbing) -
+            if (haskey(world.states, newpos) == true)
                 s′ = world.states[newpos];
                 T[s, s′, a] = 1.0;
             else
-                T[s, s, a] = 1.0;   # off-grid or absorbing -> self-loop
+                T[s, s, a] = 1.0;   # off-grid -> self-loop
             end
         end
     end
