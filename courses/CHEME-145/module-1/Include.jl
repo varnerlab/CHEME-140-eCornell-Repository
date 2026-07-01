@@ -35,3 +35,4 @@ include(joinpath(_PATH_TO_SRC, "Factory.jl"));
 include(joinpath(_PATH_TO_SRC, "Compute.jl"));
 include(joinpath(_PATH_TO_SRC, "Indifference.jl"));
 include(joinpath(_PATH_TO_SRC, "Budget.jl"));
+include(joinpath(_PATH_TO_SRC, "DiscreteChoice.jl"));

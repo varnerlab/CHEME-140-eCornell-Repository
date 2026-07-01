@@ -84,3 +84,19 @@ function build(modeltype::Type{MyPowerUtilityFunction}, data::NamedTuple)::MyPow
     model.τ = data.τ;
     return model;
 end
+
+"""
+    build(modeltype::Type{MyLinearRandomUtilityModel}, data::NamedTuple) -> MyLinearRandomUtilityModel
+
+Builds a multinomial logit discrete-choice model with a linear-in-features utility `Vⱼ = βᵀ xⱼ`.
+
+### Arguments
+- `data::NamedTuple`: must contain the keys `β::Array{Float64,1}` (feature weights) and
+  `μ::Float64` (logit scale parameter).
+"""
+function build(modeltype::Type{MyLinearRandomUtilityModel}, data::NamedTuple)::MyLinearRandomUtilityModel
+    model = modeltype();
+    model.β = data.β;
+    model.μ = data.μ;
+    return model;
+end

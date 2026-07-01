@@ -11,6 +11,12 @@ abstract type AbstractChoiceProblem end
 # ---------------------------------------------------------------------------------------------- #
 abstract type AbstractWealthUtilityFunction end
 
+# ---------------------------------------------------------------------------------------------- #
+# Discrete choice models: split utility into an observed part V and a random part, and return the
+# probability of each alternative.
+# ---------------------------------------------------------------------------------------------- #
+abstract type AbstractDiscreteChoiceModel end
+
 """
     mutable struct MyLinearUtilityFunction <: AbstractUtilityFunction
 
@@ -112,4 +118,21 @@ Model of a power utility over wealth, `U(w) = w^τ`. The exponent `τ` sets the 
 mutable struct MyPowerUtilityFunction <: AbstractWealthUtilityFunction
     τ::Float64 # risk (curvature) parameter
     MyPowerUtilityFunction() = new(); # empty constructor
+end
+
+"""
+    mutable struct MyLinearRandomUtilityModel <: AbstractDiscreteChoiceModel
+
+Model of a multinomial logit discrete choice with a linear-in-features deterministic utility
+`Vⱼ = βᵀ xⱼ`. The random utility is `Uⱼ = Vⱼ + εⱼ` with IID Gumbel errors, which gives the logit
+choice probabilities `Pⱼ = exp(μ Vⱼ) / ∑ₖ exp(μ Vₖ)`.
+
+### Fields
+- `β::Array{Float64,1}`: feature weights (one per feature).
+- `μ::Float64`: logit scale parameter, `μ > 0` (often normalized to 1).
+"""
+mutable struct MyLinearRandomUtilityModel <: AbstractDiscreteChoiceModel
+    β::Array{Float64,1} # feature weights
+    μ::Float64 # logit scale parameter
+    MyLinearRandomUtilityModel() = new(); # empty constructor
 end
