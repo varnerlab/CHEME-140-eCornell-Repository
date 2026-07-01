@@ -6,7 +6,7 @@ const _PATH_TO_SRC = joinpath(_ROOT, "src");
 using Pkg
 Pkg.activate(_ROOT);
 if (isfile(joinpath(_ROOT, "Manifest.toml")) == false)
-    Pkg.add(["JuMP", "Ipopt", "Plots", "Colors", "PrettyTables", "LinearAlgebra"]);
+    Pkg.add(["JuMP", "Ipopt", "Plots", "Colors", "PrettyTables", "LinearAlgebra", "ForwardDiff", "Random"]);
     Pkg.instantiate();
 end
 
@@ -17,6 +17,8 @@ using Plots
 using Colors
 using PrettyTables
 using LinearAlgebra
+using ForwardDiff
+using Random
 
 # color palette (Paul Tol muted) -
 colors = Dict{Int,RGB}();

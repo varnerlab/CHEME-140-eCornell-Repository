@@ -1,6 +1,6 @@
 # CHEME-145 — Decision Systems: Refactor Plan
 
-*Drafted 2026-06-30. Status: topic/lecture brainstorm — not yet validated against an existing week-by-week template or drafted as lectures/notebooks.*
+*Drafted 2026-06-30. Status: topic/lecture brainstorm — not yet validated against an existing week-by-week template. Module 1 drafting underway: the theory notebook and the first two escalating-practice demos are built (see Module 1 below).*
 
 ## Course Context
 
@@ -29,8 +29,13 @@
 4. Discrete choice models — random utility models, Luce's choice axiom, multinomial/conditional logit (McFadden), IIA
 
 **Escalating practice**
-- Demo: live Cobb-Douglas consumer-choice optimization, or a live logit fit
-- Ungraded notebook: compute indifference curves/MRS for a few utility functions and expected utility/risk premium for a gamble; explore a discrete-choice dataset
+- Demo (built): `module-1/CHEME-145-M1-IndifferenceCurves-Watch-Demo.ipynb` — compute and plot indifference curves (level sets) for linear, Cobb-Douglas, and Leontief utilities
+- Demo (built): `module-1/CHEME-145-M1-CobbDouglas-Utility-Watch-Demo.ipynb` — budget-constrained Cobb-Douglas utility maximization; closed-form and numerical (JuMP/Ipopt) solutions, first-order/MRS checks, and the budget-line vs. indifference-curve tangency plot
+- Demo (built): `module-1/CHEME-145-M1-ArrowPratt-Watch-Demo.ipynb` — Arrow-Pratt absolute/relative risk aversion A(w), R(w) for logarithmic/linear/power utilities, derivatives via automatic differentiation (ForwardDiff)
+- Demo (built): `module-1/CHEME-145-M1-Insurance-Watch-Demo.ipynb` — insurance decision: expected value vs. expected utility, certainty equivalent CE = U⁻¹(E[U]), risk premium π = E[W] − CE, and the maximum premium a risk-averse agent will pay
+- Ungraded notebook (todo): explore a discrete-choice dataset
+
+The four demos are backed by self-contained local scaffolding in `module-1/` (`Include.jl`, `Project.toml`, `src/`): bundle utility types + `build`/`solve`/`indifference`/`budget`, plus scalar wealth utilities (log/linear/power) with `evaluate`/`inverse`, Arrow-Pratt `absolute_risk_aversion`/`relative_risk_aversion` (ForwardDiff), and `expected_utility`/`certainty_equivalent` — not the old `VLDecisionsPackage.jl`. Theory for all four Module 1 lectures is consolidated in `module-1/CHEME-145-M1-Introduction-ClassicalDecisionSystems-Read-Pages.ipynb`.
 
 **Graded example**
 - Estimate and interpret a multinomial logit on a choice dataset (mode choice, brand choice, or investment choice); report marginal effects/elasticities

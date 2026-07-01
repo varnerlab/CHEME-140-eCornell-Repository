@@ -48,3 +48,39 @@ function build(modeltype::Type{MySimpleCobbDouglasChoiceProblem},
     model.initial = data.initial;
     return model;
 end
+
+"""
+    build(modeltype::Type{MyLogarithmicUtilityFunction}) -> MyLogarithmicUtilityFunction
+
+Builds a logarithmic wealth-utility model `U(w) = ln(w)`. Takes no parameters.
+"""
+build(modeltype::Type{MyLogarithmicUtilityFunction}) = modeltype();
+
+"""
+    build(modeltype::Type{MyLinearWealthUtilityFunction}, data::NamedTuple) -> MyLinearWealthUtilityFunction
+
+Builds a linear wealth-utility model `U(w) = a w + b`.
+
+### Arguments
+- `data::NamedTuple`: must contain the keys `a::Float64` (slope) and `b::Float64` (intercept).
+"""
+function build(modeltype::Type{MyLinearWealthUtilityFunction}, data::NamedTuple)::MyLinearWealthUtilityFunction
+    model = modeltype();
+    model.a = data.a;
+    model.b = data.b;
+    return model;
+end
+
+"""
+    build(modeltype::Type{MyPowerUtilityFunction}, data::NamedTuple) -> MyPowerUtilityFunction
+
+Builds a power wealth-utility model `U(w) = w^τ`.
+
+### Arguments
+- `data::NamedTuple`: must contain the key `τ::Float64`, the risk (curvature) parameter.
+"""
+function build(modeltype::Type{MyPowerUtilityFunction}, data::NamedTuple)::MyPowerUtilityFunction
+    model = modeltype();
+    model.τ = data.τ;
+    return model;
+end

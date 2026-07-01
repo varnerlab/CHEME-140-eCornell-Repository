@@ -111,3 +111,80 @@ function solve(problem::MySimpleCobbDouglasChoiceProblem)::Dict{String,Any}
     results["objective_value"] = prod(x_opt[i]^α[i] for i ∈ 1:n);
     return results;
 end
+
+# ---------------------------------------------------------------------------------------------- #
+# Scalar wealth utilities U(w), their inverses U⁻¹(u), and decision-under-risk quantities.
+# The argument w is left untyped (Real) so the functions compose with ForwardDiff for the
+# Arrow-Pratt derivatives below.
+# ---------------------------------------------------------------------------------------------- #
+"""
+    evaluate(model::AbstractWealthUtilityFunction, w) -> Real
+
+Evaluates a scalar wealth utility `U(w)`: `ln(w)` (logarithmic), `a w + b` (linear), or `w^τ`
+(power), depending on the model type.
+"""
+evaluate(model::MyLogarithmicUtilityFunction, w) = log(w);
+evaluate(model::MyLinearWealthUtilityFunction, w) = model.a*w + model.b;
+evaluate(model::MyPowerUtilityFunction, w) = w^(model.τ);
+
+# short-form functor syntax: model(w) calls evaluate(model, w) -
+(model::MyLogarithmicUtilityFunction)(w) = evaluate(model, w);
+(model::MyLinearWealthUtilityFunction)(w) = evaluate(model, w);
+(model::MyPowerUtilityFunction)(w) = evaluate(model, w);
+
+"""
+    inverse(model::AbstractWealthUtilityFunction, u) -> Real
+
+Evaluates the inverse utility `U⁻¹(u)`, the wealth whose utility is `u`: `exp(u)` (logarithmic),
+`(u − b)/a` (linear), or `u^(1/τ)` (power). Used to compute the certainty equivalent.
+"""
+inverse(model::MyLogarithmicUtilityFunction, u) = exp(u);
+inverse(model::MyLinearWealthUtilityFunction, u) = (u - model.b)/model.a;
+inverse(model::MyPowerUtilityFunction, u) = u^(1/model.τ);
+
+"""
+    absolute_risk_aversion(model::AbstractWealthUtilityFunction, w::Real) -> Float64
+
+Computes the Arrow-Pratt coefficient of absolute risk aversion `A(w) = −U''(w)/U'(w)`. The first
+and second derivatives are obtained by automatic differentiation (ForwardDiff), so the same code
+works for any twice-differentiable wealth utility. `A(w) > 0` is risk averse, `A(w) = 0` is risk
+neutral, and `A(w) < 0` is risk loving.
+"""
+function absolute_risk_aversion(model::AbstractWealthUtilityFunction, w::Real)::Float64
+    U = x -> evaluate(model, x);
+    Up = ForwardDiff.derivative(U, w); # U'(w)
+    Upp = ForwardDiff.derivative(x -> ForwardDiff.derivative(U, x), w); # U''(w)
+    return -Upp/Up;
+end
+
+"""
+    relative_risk_aversion(model::AbstractWealthUtilityFunction, w::Real) -> Float64
+
+Computes the Arrow-Pratt coefficient of relative risk aversion `R(w) = −w U''(w)/U'(w) = w A(w)`.
+"""
+relative_risk_aversion(model::AbstractWealthUtilityFunction, w::Real)::Float64 = w*absolute_risk_aversion(model, w);
+
+# ---------------------------------------------------------------------------------------------- #
+# Discrete-lottery quantities: a lottery pays wealth w[i] with probability p[i] (∑ p = 1).
+# ---------------------------------------------------------------------------------------------- #
+"""
+    expected_utility(model::AbstractWealthUtilityFunction, w::Array{Float64,1}, p::Array{Float64,1}) -> Float64
+
+Computes the expected utility `𝔼[U(W)] = ∑ᵢ pᵢ U(wᵢ)` of a discrete lottery with outcomes `w` and
+probabilities `p`.
+"""
+function expected_utility(model::AbstractWealthUtilityFunction,
+    w::Array{Float64,1}, p::Array{Float64,1})::Float64
+    return sum(p[i]*evaluate(model, w[i]) for i ∈ eachindex(w));
+end
+
+"""
+    certainty_equivalent(model::AbstractWealthUtilityFunction, w::Array{Float64,1}, p::Array{Float64,1}) -> Float64
+
+Computes the certainty equivalent `CE = U⁻¹(𝔼[U(W)])`, the guaranteed wealth that gives the same
+utility as the lottery with outcomes `w` and probabilities `p`.
+"""
+function certainty_equivalent(model::AbstractWealthUtilityFunction,
+    w::Array{Float64,1}, p::Array{Float64,1})::Float64
+    return inverse(model, expected_utility(model, w, p));
+end

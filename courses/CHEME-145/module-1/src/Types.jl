@@ -5,6 +5,12 @@
 abstract type AbstractUtilityFunction end
 abstract type AbstractChoiceProblem end
 
+# ---------------------------------------------------------------------------------------------- #
+# Scalar utility functions over wealth, U: ℝ₊ → ℝ, used for decision under risk (expected utility,
+# certainty equivalent, risk premium, Arrow-Pratt risk aversion).
+# ---------------------------------------------------------------------------------------------- #
+abstract type AbstractWealthUtilityFunction end
+
 """
     mutable struct MyLinearUtilityFunction <: AbstractUtilityFunction
 
@@ -65,4 +71,45 @@ mutable struct MySimpleCobbDouglasChoiceProblem <: AbstractChoiceProblem
     bounds::Array{Float64,2} # bounds on each good
     initial::Array{Float64,1} # initial guess for the solver
     MySimpleCobbDouglasChoiceProblem() = new(); # empty constructor
+end
+
+"""
+    mutable struct MyLogarithmicUtilityFunction <: AbstractWealthUtilityFunction
+
+Model of a logarithmic (Bernoulli) utility over wealth, `U(w) = ln(w)`. Concave, so it models a
+risk-averse decision-maker. Has no parameters.
+"""
+mutable struct MyLogarithmicUtilityFunction <: AbstractWealthUtilityFunction
+    MyLogarithmicUtilityFunction() = new(); # empty constructor
+end
+
+"""
+    mutable struct MyLinearWealthUtilityFunction <: AbstractWealthUtilityFunction
+
+Model of a linear utility over wealth, `U(w) = a w + b`. Has zero curvature, so it models a
+risk-neutral decision-maker.
+
+### Fields
+- `a::Float64`: slope, `a > 0`.
+- `b::Float64`: intercept.
+"""
+mutable struct MyLinearWealthUtilityFunction <: AbstractWealthUtilityFunction
+    a::Float64 # slope
+    b::Float64 # intercept
+    MyLinearWealthUtilityFunction() = new(); # empty constructor
+end
+
+"""
+    mutable struct MyPowerUtilityFunction <: AbstractWealthUtilityFunction
+
+Model of a power utility over wealth, `U(w) = w^τ`. The exponent `τ` sets the risk attitude:
+`τ < 1` is concave (risk averse), `τ = 1` is linear (risk neutral), and `τ > 1` is convex
+(risk loving).
+
+### Fields
+- `τ::Float64`: risk (curvature) parameter, `τ > 0`.
+"""
+mutable struct MyPowerUtilityFunction <: AbstractWealthUtilityFunction
+    τ::Float64 # risk (curvature) parameter
+    MyPowerUtilityFunction() = new(); # empty constructor
 end
