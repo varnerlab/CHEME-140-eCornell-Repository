@@ -1062,26 +1062,43 @@ end
       end
   end
   ```
-- **[md] Count value-iteration sweeps to the same policy** → **[code]**
+- **[md] Compare iteration counts: policy iteration vs. value iteration.** Policy iteration converges in a few expensive evaluate/improve cycles. Value iteration takes many cheap sweeps for its *value function* to converge, even though its *greedy policy* often becomes optimal much earlier. Count all three. → **[code]**
   ```julia
   let
+      ϵ = 1e-9;
       π_star = policy(Q(mdp, solve(build(MyPolicyIterationModel, (maxiterations = 100,)), mdp).V));
-      V = zeros(Float64, length(mdp.𝒮));
-      k = 0; matched = -1;
-      while (k < 5_000)
-          V = [ maximum(mdp.R[s,a] + mdp.γ*sum(mdp.T[s,s′,a]*V[s′] for s′ ∈ mdp.𝒮) for a ∈ mdp.𝒜) for s ∈ mdp.𝒮 ];
-          k += 1;
-          if (policy(Q(mdp, V)) == π_star && matched < 0)
-              matched = k;
-          end
+
+      # policy iteration: number of evaluate/improve cycles until the policy is stable
+      π = ones(Int64, length(mdp.𝒮)); pi_cycles = 0;
+      while true
+          Vπ = policy_evaluation(mdp, π);
+          π′ = policy(Q(mdp, Vπ));
+          pi_cycles += 1;
+          (π′ == π) && break;
+          π = π′;
       end
-      println("value iteration first matched the optimal policy at sweep ", matched);
+
+      # value iteration: sweeps until the value function converges, and the first sweep whose greedy policy is optimal
+      V = zeros(Float64, length(mdp.𝒮));
+      first_match = -1; vi_sweeps = 0; converged = false;
+      while (converged == false && vi_sweeps < 5_000)
+          Vnew = [ maximum(mdp.R[s,a] + mdp.γ*sum(mdp.T[s,s′,a]*V[s′] for s′ ∈ mdp.𝒮) for a ∈ mdp.𝒜) for s ∈ mdp.𝒮 ];
+          vi_sweeps += 1;
+          (policy(Q(mdp, Vnew)) == π_star && first_match < 0) && (first_match = vi_sweeps);
+          Δ = maximum(abs.(Vnew .- V));
+          V = Vnew;
+          (Δ ≤ ϵ) && (converged = true);
+      end
+
+      println("policy iteration: converged in $(pi_cycles) evaluate/improve cycles");
+      println("value iteration:  value function converged in $(vi_sweeps) sweeps (‖ΔV‖∞ ≤ $(ϵ))");
+      println("value iteration:  greedy policy already optimal at sweep $(first_match)");
   end
   ```
 - **[md] Experiment** — students vary `stockout_penalty` or `demand_pmf`, rebuild, and re-solve; observe the order-up-to level shift.
-- **[md] Summary + 3 Key Takeaways** — policy iteration converges in a few expensive sweeps; value iteration takes more cheap sweeps to reach the same policy; both agree at the optimum.
+- **[md] Summary + 3 Key Takeaways** — (1) policy iteration reaches the optimum in a few expensive evaluate/improve cycles (each a full policy evaluation); (2) value iteration needs many cheap sweeps for its value function to converge, even though its greedy policy often becomes optimal much earlier; (3) both converge to the same optimal policy.
 
-- [ ] **Step 1:** Create per manifest. **Step 2:** Execute. **Step 3: Verify** — the manual loop prints "converged after k sweep(s)" with small `k`; value iteration's `matched` sweep count is finite and larger than the PI sweep count. **Step 4: Commit** `"M4: policy-iteration inventory Ungraded Codio activity"`.
+- [ ] **Step 1:** Create per manifest. **Step 2:** Execute. **Step 3: Verify** — the manual PI loop prints "converged after k cycle(s)" with small `k` (≈3); the comparison cell prints PI cycles ≈ 3, VI value-convergence sweeps ≈ 447, and VI greedy-optimal at sweep ≈ 2 (VI's value-convergence sweeps ≫ PI's cycles, while VI's greedy policy locks in early). **Step 4: Commit** `"M4: policy-iteration inventory Ungraded Codio activity"`.
 
 ---
 
