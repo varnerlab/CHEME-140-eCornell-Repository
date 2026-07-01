@@ -152,8 +152,9 @@ end
         -> MyMDPProblemModel
 
 Construct a deterministic-move MDP from a grid world. A move to a valid non-absorbing cell earns that
-cell's reward (or `step_reward`); a move off the grid earns `offgrid_penalty` and self-loops;
-absorbing cells self-loop.
+cell's reward (or `step_reward`); a move off the grid earns `offgrid_penalty` and self-loops.
+Absorbing cells self-loop with zero reward, so their value-to-go is `V=0` (the terminal reward is
+earned on the step INTO the cell, not while sitting in it).
 """
 function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
     step_reward::Float64 = -1.0, offgrid_penalty::Float64 = -1000.0,
@@ -172,21 +173,29 @@ function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
         Δ = world.moves[a];
         for s ∈ 𝒮
             current = world.coordinates[s];
+
+            # absorbing cells: zero future reward, self-loop (so V(absorbing) = 0) -
+            if (in(current, absorbing) == true)
+                R[s, a] = 0.0;
+                T[s, s, a] = 1.0;
+                continue;
+            end
+
             newpos = current .+ Δ;
 
-            # reward -
+            # reward (current is non-absorbing) -
             if (haskey(world.states, newpos) == true)
                 R[s,a] = haskey(rewards, newpos) ? rewards[newpos] : step_reward;
             else
                 R[s,a] = offgrid_penalty;
             end
 
-            # transition -
-            if (haskey(world.states, newpos) == true && in(current, absorbing) == false)
+            # transition (current is non-absorbing) -
+            if (haskey(world.states, newpos) == true)
                 s′ = world.states[newpos];
                 T[s, s′, a] = 1.0;
             else
-                T[s, s, a] = 1.0;   # off-grid or absorbing -> self-loop
+                T[s, s, a] = 1.0;   # off-grid -> self-loop
             end
         end
     end

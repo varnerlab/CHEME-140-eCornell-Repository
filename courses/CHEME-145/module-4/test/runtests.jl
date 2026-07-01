@@ -58,7 +58,17 @@ end
     @test mdp.R[s, 4] == 100.0;
     @test mdp.T[s, world.states[(3,3)], 4] == 1.0;
 
-    # value iteration policy sends (3,2) up into the goal -
+    # absorbing cells self-loop with zero reward (value-to-go 0) -
+    for cell ∈ absorbing
+        sc = world.states[cell];
+        for a ∈ mdp.𝒜
+            @test mdp.R[sc, a] == 0.0;
+            @test mdp.T[sc, sc, a] == 1.0;
+        end
+    end
+
+    # value iteration policy sends (3,2) up into the goal; absorbing goal has V=0 -
     sol = solve(build(MyValueIterationModel, (maxiterations=10_000, ϵ=1e-8)), mdp);
     @test policy(Q(mdp, sol.V))[s] == 4;
+    @test isapprox(sol.V[world.states[(3,3)]], 0.0; atol=1e-9);
 end
