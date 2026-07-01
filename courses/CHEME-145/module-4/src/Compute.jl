@@ -146,3 +146,50 @@ function solve(model::MyPolicyIterationModel, problem::MyMDPProblemModel)::MyVal
     return solution;
 end
 # ---------------------------------------------------------------------------------------------- #
+
+"""
+    build_mdp(world::MyRectangularGridWorldModel, γ::Float64; step_reward, offgrid_penalty, absorbing)
+        -> MyMDPProblemModel
+
+Construct a deterministic-move MDP from a grid world. A move to a valid non-absorbing cell earns that
+cell's reward (or `step_reward`); a move off the grid earns `offgrid_penalty` and self-loops;
+absorbing cells self-loop.
+"""
+function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
+    step_reward::Float64 = -1.0, offgrid_penalty::Float64 = -1000.0,
+    absorbing::Set{Tuple{Int,Int}} = Set{Tuple{Int,Int}}())::MyMDPProblemModel
+
+    nstates = world.nrows*world.ncols;
+    nactions = length(world.moves);
+    𝒮 = collect(1:nstates);
+    𝒜 = collect(1:nactions);
+    rewards = world.rewards;
+
+    R = zeros(Float64, nstates, nactions);
+    T = zeros(Float64, nstates, nstates, nactions);
+
+    for a ∈ 𝒜
+        Δ = world.moves[a];
+        for s ∈ 𝒮
+            current = world.coordinates[s];
+            newpos = current .+ Δ;
+
+            # reward -
+            if (haskey(world.states, newpos) == true)
+                R[s,a] = haskey(rewards, newpos) ? rewards[newpos] : step_reward;
+            else
+                R[s,a] = offgrid_penalty;
+            end
+
+            # transition -
+            if (haskey(world.states, newpos) == true && in(current, absorbing) == false)
+                s′ = world.states[newpos];
+                T[s, s′, a] = 1.0;
+            else
+                T[s, s, a] = 1.0;   # off-grid or absorbing -> self-loop
+            end
+        end
+    end
+
+    return build(MyMDPProblemModel, (𝒮=𝒮, 𝒜=𝒜, T=T, R=R, γ=γ));
+end

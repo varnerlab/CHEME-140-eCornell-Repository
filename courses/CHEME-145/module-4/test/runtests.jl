@@ -39,3 +39,26 @@ include(joinpath(@__DIR__, "..", "src", "Compute.jl"));
     Viter  = iterative_policy_evaluation(problem, π_vi; ϵ=1e-12, maxiterations=100_000);
     @test isapprox(Vexact, Viter; atol=1e-4);
 end
+
+@testset "grid world MDP" begin
+    rewards = Dict{Tuple{Int,Int},Float64}();
+    rewards[(3,3)] = 100.0;    # goal
+    rewards[(1,3)] = -100.0;   # hazard
+    world = build(MyRectangularGridWorldModel, (nrows=3, ncols=3, rewards=rewards));
+    absorbing = Set(keys(rewards));
+    mdp = build_mdp(world, 0.95; step_reward=-1.0, offgrid_penalty=-1000.0, absorbing=absorbing);
+
+    # transitions are proper distributions -
+    for a ∈ mdp.𝒜, s ∈ mdp.𝒮
+        @test isapprox(sum(mdp.T[s, :, a]), 1.0; atol=1e-9);
+    end
+
+    # from the cell just below the goal (3,2), moving up (action 4) must reach the goal and earn +100 -
+    s = world.states[(3,2)];
+    @test mdp.R[s, 4] == 100.0;
+    @test mdp.T[s, world.states[(3,3)], 4] == 1.0;
+
+    # value iteration policy sends (3,2) up into the goal -
+    sol = solve(build(MyValueIterationModel, (maxiterations=10_000, ϵ=1e-8)), mdp);
+    @test policy(Q(mdp, sol.V))[s] == 4;
+end
