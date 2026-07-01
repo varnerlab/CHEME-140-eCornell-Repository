@@ -88,3 +88,23 @@ end
     @test policy(Q(mdp, sol_vi.V)) == policy(Q(mdp, sol_pi.V));
     @test isapprox(sol_vi.V, sol_pi.V; atol=1e-4);
 end
+
+@testset "equipment replacement: threshold policy, VI == PI" begin
+    mdp = build_replacement_mdp(; max_age = 10, income0 = 100.0, income_decline = 5.0,
+        maint0 = 2.0, maint_slope = 5.0, replace_cost = 60.0, γ = 0.9);
+
+    for a ∈ mdp.𝒜, s ∈ mdp.𝒮
+        @test isapprox(sum(mdp.T[s, :, a]), 1.0; atol=1e-9);
+    end
+
+    sol_vi = solve(build(MyValueIterationModel, (maxiterations = 10_000, ϵ = 1e-9)), mdp);
+    sol_pi = solve(build(MyPolicyIterationModel, (maxiterations = 100,)), mdp);
+    π_vi = policy(Q(mdp, sol_vi.V));
+    @test π_vi == policy(Q(mdp, sol_pi.V));            # VI == PI
+
+    # monotone threshold: once "replace" (action 2) is chosen, it stays chosen for all older ages -
+    replace_ages = [ a for a ∈ 0:10 if π_vi[a+1] == 2 ];
+    @test !isempty(replace_ages);                     # replacement is used somewhere
+    a_star = minimum(replace_ages);
+    @test all(π_vi[a+1] == 2 for a ∈ a_star:10);      # monotone
+end

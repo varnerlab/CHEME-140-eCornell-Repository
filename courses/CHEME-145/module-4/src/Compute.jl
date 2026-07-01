@@ -254,3 +254,36 @@ function build_inventory_mdp(; capacity::Int, demand_pmf::Vector{Float64}, price
 
     return build(MyMDPProblemModel, (𝒮=𝒮, 𝒜=𝒜, T=T, R=R, γ=γ));
 end
+
+"""
+    build_replacement_mdp(; max_age, income0, income_decline, maint0, maint_slope, replace_cost, γ)
+        -> MyMDPProblemModel
+
+Equipment replacement (optimal stopping). State `s = a+1` for machine age `a ∈ 0:max_age`; action
+1 = keep, 2 = replace. Keep: reward `(income0 - income_decline·a) - (maint0 + maint_slope·a)`, age
+advances to `min(a+1, max_age)`. Replace: reward `-replace_cost + (income0 - maint0)`, age resets to 1.
+"""
+function build_replacement_mdp(; max_age::Int, income0::Float64, income_decline::Float64,
+    maint0::Float64, maint_slope::Float64, replace_cost::Float64, γ::Float64)::MyMDPProblemModel
+
+    nstates = max_age + 1;
+    𝒮 = collect(1:nstates);
+    𝒜 = [1, 2];   # 1 = keep, 2 = replace
+    R = zeros(Float64, nstates, 2);
+    T = zeros(Float64, nstates, nstates, 2);
+
+    for s ∈ 𝒮
+        a_age = s - 1;
+
+        # keep -
+        R[s, 1] = (income0 - income_decline*a_age) - (maint0 + maint_slope*a_age);
+        next_keep = min(a_age + 1, max_age) + 1;
+        T[s, next_keep, 1] = 1.0;
+
+        # replace -
+        R[s, 2] = -replace_cost + (income0 - maint0);
+        T[s, 2, 2] = 1.0;   # next age = 1 -> state index 2
+    end
+
+    return build(MyMDPProblemModel, (𝒮=𝒮, 𝒜=𝒜, T=T, R=R, γ=γ));
+end
