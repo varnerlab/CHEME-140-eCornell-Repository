@@ -72,3 +72,19 @@ end
     @test policy(Q(mdp, sol.V))[s] == 4;
     @test isapprox(sol.V[world.states[(3,3)]], 0.0; atol=1e-9);
 end
+
+@testset "inventory MDP: VI == PI" begin
+    mdp = build_inventory_mdp(; capacity = 8, demand_pmf = [0.05,0.2,0.5,0.2,0.05],
+        price = 10.0, order_cost = 3.0, fixed_cost = 2.0, holding_cost = 1.0,
+        stockout_penalty = 8.0, γ = 0.95);
+
+    # rows of T are distributions -
+    for a ∈ mdp.𝒜, s ∈ mdp.𝒮
+        @test isapprox(sum(mdp.T[s, :, a]), 1.0; atol=1e-9);
+    end
+
+    sol_vi = solve(build(MyValueIterationModel, (maxiterations = 10_000, ϵ = 1e-9)), mdp);
+    sol_pi = solve(build(MyPolicyIterationModel, (maxiterations = 100,)), mdp);
+    @test policy(Q(mdp, sol_vi.V)) == policy(Q(mdp, sol_pi.V));
+    @test isapprox(sol_vi.V, sol_pi.V; atol=1e-4);
+end

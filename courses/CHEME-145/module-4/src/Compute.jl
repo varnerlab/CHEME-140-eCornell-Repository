@@ -202,3 +202,55 @@ function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
 
     return build(MyMDPProblemModel, (𝒮=𝒮, 𝒜=𝒜, T=T, R=R, γ=γ));
 end
+
+"""
+    build_inventory_mdp(; capacity, demand_pmf, price, order_cost, fixed_cost, holding_cost,
+        stockout_penalty, γ) -> MyMDPProblemModel
+
+Single-item stochastic inventory control. State `s = i+1` for on-hand `i ∈ 0:capacity`; action
+`a = o+1` for order-up quantity `o ∈ 0:capacity`. Post-order stock `q = i+o` (feasible when
+`q ≤ capacity`); random demand `d` has pmf `demand_pmf` over `0:(length-1)`; next on-hand is
+`max(0, q-d)`. Reward = price·min(q,d) − order_cost·o − fixed_cost·1(o>0) − holding_cost·q −
+stockout_penalty·max(0,d-q). Infeasible actions self-loop with reward −1e6.
+"""
+function build_inventory_mdp(; capacity::Int, demand_pmf::Vector{Float64}, price::Float64,
+    order_cost::Float64, fixed_cost::Float64, holding_cost::Float64, stockout_penalty::Float64,
+    γ::Float64)::MyMDPProblemModel
+
+    nstates = capacity + 1;
+    nactions = capacity + 1;
+    𝒮 = collect(1:nstates);
+    𝒜 = collect(1:nactions);
+    Dmax = length(demand_pmf) - 1;
+
+    R = fill(-1.0e6, nstates, nactions);   # infeasible default
+    T = zeros(Float64, nstates, nstates, nactions);
+
+    for s ∈ 𝒮
+        i = s - 1;                          # on-hand
+        for a ∈ 𝒜
+            o = a - 1;                      # order quantity
+            q = i + o;                      # post-order stock
+            if (q > capacity)               # infeasible -> self-loop, keep penalty
+                T[s, s, a] = 1.0;
+                continue;
+            end
+
+            expected_reward = 0.0;
+            for d ∈ 0:Dmax
+                pd = demand_pmf[d + 1];
+                sales = min(q, d);
+                unmet = max(0, d - q);
+                reward = price*sales - order_cost*o - fixed_cost*(o > 0 ? 1.0 : 0.0) -
+                         holding_cost*q - stockout_penalty*unmet;
+                expected_reward += pd*reward;
+
+                s′ = max(0, q - d) + 1;     # next state index
+                T[s, s′, a] += pd;
+            end
+            R[s, a] = expected_reward;
+        end
+    end
+
+    return build(MyMDPProblemModel, (𝒮=𝒮, 𝒜=𝒜, T=T, R=R, γ=γ));
+end
