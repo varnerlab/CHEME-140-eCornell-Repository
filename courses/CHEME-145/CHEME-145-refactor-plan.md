@@ -1,6 +1,6 @@
 # CHEME-145 — Decision Systems: Refactor Plan
 
-*Drafted 2026-06-30. Status: topic/lecture brainstorm — not yet validated against an existing week-by-week template. Module 1 drafting underway: the theory notebook and all five escalating-practice demos are built; the graded example remains (see Module 1 below).*
+*Drafted 2026-06-30. Status: topic/lecture brainstorm — not yet validated against an existing week-by-week template. Module 1 complete: theory notebook, five escalating-practice examples (3 Watch-Demos, 2 ungraded Codio activities), and the graded Codio activity (multinomial-logit estimation on TravelMode) are all built.*
 
 ## Course Context
 
@@ -30,21 +30,24 @@
 
 **Escalating practice** — five built notebooks, sorted by delivery format (Watch-Demo = instructor voice-over; Ungraded/Graded Codio = students execute in Codio/Canvas):
 
+Naming convention: `module-1/CHEME-145-M1-Example-<Topic>-<DeliveryType>.ipynb`.
+
 _Watch-Demos (built):_
-- `module-1/CHEME-145-M1-IndifferenceCurves-Watch-Demo.ipynb` — indifference curves (level sets) for linear, Cobb-Douglas, and Leontief utilities
-- `module-1/CHEME-145-M1-ArrowPratt-Watch-Demo.ipynb` — Arrow-Pratt absolute/relative risk aversion A(w), R(w) for logarithmic/linear/power utilities, derivatives via automatic differentiation (ForwardDiff)
-- `module-1/CHEME-145-M1-DiscreteChoice-Watch-Demo.ipynb` — multinomial logit for a commute-mode choice (car/bus/bike): choice probabilities P_j = softmax(μ V_j), feature sensitivity (congestion charge), the IIA red-bus/blue-bus demonstration, and a choice simulation
+- `...-Example-IndifferenceCurves-Watch-Demo.ipynb` — indifference curves (level sets) for linear, Cobb-Douglas, and Leontief utilities
+- `...-Example-ArrowPratt-Watch-Demo.ipynb` — Arrow-Pratt absolute/relative risk aversion A(w), R(w) for logarithmic/linear/power utilities, derivatives via automatic differentiation (ForwardDiff)
+- `...-Example-DiscreteChoice-Watch-Demo.ipynb` — multinomial logit for a commute-mode choice (car/bus/bike): choice probabilities P_j = softmax(μ V_j), feature sensitivity (congestion charge), the IIA red-bus/blue-bus demonstration, and a choice simulation
 
 _Ungraded Codio activities (built):_
-- `module-1/CHEME-145-M1-CobbDouglas-Utility-Ungraded-Codio-Activity.ipynb` — budget-constrained Cobb-Douglas optimization; closed-form and numerical (JuMP/Ipopt) solutions, first-order/MRS checks, tangency plot
-- `module-1/CHEME-145-M1-Insurance-Ungraded-Codio-Activity.ipynb` — insurance decision: expected value vs. expected utility, certainty equivalent CE = U⁻¹(E[U]), risk premium π = E[W] − CE, and the maximum premium a risk-averse agent will pay
+- `...-Example-CobbDouglas-Utility-Ungraded-Codio-Activity.ipynb` — budget-constrained Cobb-Douglas optimization; closed-form and numerical (JuMP/Ipopt) solutions, first-order/MRS checks, tangency plot
+- `...-Example-Insurance-Ungraded-Codio-Activity.ipynb` — insurance decision: expected value vs. expected utility, certainty equivalent CE = U⁻¹(E[U]), risk premium π = E[W] − CE, and the maximum premium a risk-averse agent will pay
 
-_Graded Codio activity (todo):_ the multinomial-logit estimation example (see graded example below) — deferred until a real choice dataset is available.
+_Graded Codio activity (built):_
+- `...-Example-ModeChoice-MNL-Graded-Codio-Activity.ipynb` (+ `-Solution`) — estimate a conditional logit on the `TravelMode` dataset (`data/TravelMode.csv`, 210 travelers × air/train/bus/car). Students fill in the choice probabilities + log-likelihood, estimate by ML (Optim/BFGS + ForwardDiff gradient), and compute an own-cost elasticity. Answer key (matches Greene): ASC_air=5.776, ASC_train=3.923, ASC_bus=3.211, b_gcost=−0.0158, b_wait=−0.0971; log-likelihood −199.98; McFadden R²=0.31; own-cost elasticity of car ≈ −1.082.
 
 The five notebooks are backed by self-contained local scaffolding in `module-1/` (`Include.jl`, `Project.toml`, `src/`): bundle utility types + `build`/`solve`/`indifference`/`budget`, scalar wealth utilities (log/linear/power) with `evaluate`/`inverse`, Arrow-Pratt `absolute_risk_aversion`/`relative_risk_aversion` (ForwardDiff), `expected_utility`/`certainty_equivalent`, and a `MyLinearRandomUtilityModel` with `deterministic_utility`/`logit_choice_probabilities`/`simulate_choices` — not the old `VLDecisionsPackage.jl`. Theory for all four Module 1 lectures is consolidated in `module-1/CHEME-145-M1-Introduction-ClassicalDecisionSystems-Read-Pages.ipynb`.
 
-**Graded example**
-- Estimate and interpret a multinomial logit on a choice dataset (mode choice, brand choice, or investment choice); report marginal effects/elasticities
+**Graded example** (built)
+- Realized as `module-1/CHEME-145-M1-Example-ModeChoice-MNL-Graded-Codio-Activity.ipynb`: estimate and interpret a conditional/multinomial logit on the `TravelMode` mode-choice dataset; report coefficient signs and an own-cost elasticity (see the Graded Codio activity entry above for the answer key).
 
 ---
 

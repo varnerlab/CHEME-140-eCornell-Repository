@@ -1,12 +1,14 @@
 # setup paths -
 const _ROOT = @__DIR__;
 const _PATH_TO_SRC = joinpath(_ROOT, "src");
+const _PATH_TO_DATA = joinpath(_ROOT, "data");
 
 # activate the local environment; instantiate it the first time (no Manifest.toml yet) -
 using Pkg
 Pkg.activate(_ROOT);
 if (isfile(joinpath(_ROOT, "Manifest.toml")) == false)
-    Pkg.add(["JuMP", "Ipopt", "Plots", "Colors", "PrettyTables", "LinearAlgebra", "ForwardDiff", "Random"]);
+    Pkg.add(["JuMP", "Ipopt", "Plots", "Colors", "PrettyTables", "LinearAlgebra", "ForwardDiff",
+        "Random", "CSV", "DataFrames", "Optim"]);
     Pkg.instantiate();
 end
 
@@ -19,6 +21,9 @@ using PrettyTables
 using LinearAlgebra
 using ForwardDiff
 using Random
+using CSV
+using DataFrames
+using Optim
 
 # color palette (Paul Tol muted) -
 colors = Dict{Int,RGB}();
