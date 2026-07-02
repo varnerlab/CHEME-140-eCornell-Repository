@@ -2,7 +2,7 @@
 
 *Drafted 2026-07-01. Companion to `courses/CHEME-145/CHEME-145-refactor-plan.md`. Scope, structure, and example domains validated with the author in a brainstorming session.*
 
-**Status: Built** on branch `m4-mdp-buildout` — self-contained `src/` MDP library + tests, value-iteration demo + ungraded, policy-iteration demo + ungraded, the equipment-replacement graded solution + student notebook, and the optional Advanced rollout/MCTS demos + ungraded activities.
+**Status: Built** on branch `m4-mdp-buildout` — self-contained `src/` MDP library + tests, value-iteration demo + ungraded, policy-iteration demo + ungraded, the equipment-replacement graded solution + student notebook, and the optional Advanced rollout/MCTS demos + ungraded activities. Update (2026-07-02): advanced-track theory split into a shared reading, `CHEME-145-M4-Advanced-ApproximatePlanning-Read-Pages.ipynb`, with pseudocode for each algorithm; the four advanced notebooks now carry brief Theory Recap cells that point to it.
 
 ## Goal
 
@@ -43,6 +43,7 @@ Naming follows Module 1: `CHEME-145-M4-Example-<Topic>-<DeliveryType>.ipynb`. Op
 7. `CHEME-145-M4-Advanced-RandomRollout-Ungraded-Codio-Activity.ipynb` — students run rollout, vary the number of trajectories and horizon, and quantify the estimate's accuracy against $V^{\star}$.
 8. `CHEME-145-M4-Advanced-MCTS-Watch-Demo.ipynb` — Monte Carlo tree search (selection via UCT, expansion, rollout simulation, backpropagation) from a root state; compare the chosen action to the value-iteration optimum.
 9. `CHEME-145-M4-Advanced-MCTS-Ungraded-Codio-Activity.ipynb` — students run MCTS, vary the iteration budget and exploration constant, and observe convergence to the optimal action.
+10. `CHEME-145-M4-Advanced-ApproximatePlanning-Read-Pages.ipynb` — shared theory reading for the advanced track (added after the initial build): rollout value estimation, one-step rollout policy improvement, and MCTS with UCT, each with pseudocode in the style of the core lecture; notebooks 6–9 keep brief Theory Recap cells that point here.
 
 Optional: a one-line pointer in the lecture's closing to the advanced track.
 
