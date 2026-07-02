@@ -338,3 +338,78 @@ function rollout_value(problem::MyMDPProblemModel, s0::Int; π_fn::Function, H::
     N::Int = 1000, rng::AbstractRNG = Random.default_rng())::Float64
     return mean(simulate_return(problem, s0, π_fn, H, rng) for _ ∈ 1:N);
 end
+
+# UCT-based Monte Carlo tree search for a finite MDP. Uses a random base policy for the rollout
+# (simulation) step and returns the most-visited / highest-value action at the root.
+"""
+    mcts(problem, model, s0; rng) -> Int
+
+Run Monte Carlo tree search from state `s0` and return the estimated best action. Selection uses the
+UCT rule with exploration constant `model.c`; leaves are evaluated by a random-policy rollout of
+horizon `model.horizon`.
+"""
+function mcts(problem::MyMDPProblemModel, model::MyMCTSModel, s0::Int;
+    rng::AbstractRNG = Random.default_rng())::Int
+
+    𝒜, T, R, γ = problem.𝒜, problem.T, problem.R, problem.γ;
+    N = Dict{Tuple{Int,Int},Int}();     # visit counts N[(s,a)]
+    Qsa = Dict{Tuple{Int,Int},Float64}(); # value estimates Q[(s,a)]
+    Ns = Dict{Int,Int}();               # state visit counts
+
+    randpolicy = s -> rand(rng, 𝒜);
+
+    _sample(s, a) = begin
+        u = rand(rng); c = 0.0; s′ = s;
+        for j ∈ problem.𝒮
+            c += T[s, j, a];
+            if (u ≤ c); s′ = j; break; end
+        end
+        s′
+    end
+
+    # one simulation from state s to the given depth -
+    function simulate(s, d)
+        if (d ≤ 0)
+            return 0.0;
+        end
+        # if s unexpanded, initialize its actions and return a rollout estimate -
+        if (haskey(Ns, s) == false)
+            Ns[s] = 0;
+            for a ∈ 𝒜
+                N[(s,a)] = 0;
+                Qsa[(s,a)] = 0.0;
+            end
+            return simulate_return(problem, s, randpolicy, model.horizon, rng);
+        end
+
+        # UCT action selection -
+        Ns[s] += 1;
+        logNs = log(Ns[s] + 1);
+        best_a = 𝒜[1]; best_val = -Inf;
+        for a ∈ 𝒜
+            bonus = model.c*sqrt(logNs/(N[(s,a)] + 1));
+            val = Qsa[(s,a)] + bonus;
+            if (val > best_val); best_val = val; best_a = a; end
+        end
+        a = best_a;
+
+        s′ = _sample(s, a);
+        q = R[s, a] + γ*simulate(s′, d - 1);
+
+        N[(s,a)] += 1;
+        Qsa[(s,a)] += (q - Qsa[(s,a)])/N[(s,a)];
+        return q;
+    end
+
+    for _ ∈ 1:model.iterations
+        simulate(s0, model.depth);
+    end
+
+    # return the action with the highest mean value at the root -
+    best_a = 𝒜[1]; best_q = -Inf;
+    for a ∈ 𝒜
+        qval = get(Qsa, (s0,a), -Inf);
+        if (qval > best_q); best_q = qval; best_a = a; end
+    end
+    return best_a;
+end

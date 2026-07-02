@@ -78,3 +78,17 @@ function build(::Type{MyRectangularGridWorldModel}, data::NamedTuple)::MyRectang
     model.rewards = rewards;
     return model;
 end
+
+"""
+    build(::Type{MyMCTSModel}, data::NamedTuple) -> MyMCTSModel
+
+Build MCTS settings from keys `iterations, c, horizon, depth`.
+"""
+function build(::Type{MyMCTSModel}, data::NamedTuple)::MyMCTSModel
+    model = MyMCTSModel();
+    model.iterations = data.iterations;
+    model.c = data.c;
+    model.horizon = data.horizon;
+    model.depth = data.depth;
+    return model;
+end

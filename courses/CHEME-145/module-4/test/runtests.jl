@@ -136,3 +136,18 @@ end
     est = rollout_value(det, s0; π_fn = s -> π_star[s], H = 200, N = 50, rng = Random.MersenneTwister(42));
     @test isapprox(est, sol.V[s0]; atol=1e-6);
 end
+
+@testset "MCTS recovers the optimal root action" begin
+    rewards = Dict{Tuple{Int,Int},Float64}((5,5)=>100.0, (2,2)=>-100.0);
+    world = build(MyRectangularGridWorldModel, (nrows=5, ncols=5, rewards=rewards));
+    absorbing = Set(keys(rewards));
+    # offgrid_penalty = -1.0 (not -1000): MCTS uses random rollouts that occasionally attempt off-grid
+    # moves; a -1000 spike would make the value estimates noisy and the root-action assertion flaky.
+    mdp = build_mdp(world, 0.95; step_reward=-1.0, offgrid_penalty=-1.0, absorbing=absorbing);
+    π_star = policy(Q(mdp, solve(build(MyValueIterationModel, (maxiterations=10_000, ϵ=1e-9)), mdp).V));
+
+    s0 = world.states[(4,5)];   # one step left of the goal (5,5): optimal action is right (2)
+    model = build(MyMCTSModel, (iterations = 4_000, c = 50.0, horizon = 100, depth = 20));
+    a = mcts(mdp, model, s0; rng = Random.MersenneTwister(99));
+    @test a == π_star[s0];
+end

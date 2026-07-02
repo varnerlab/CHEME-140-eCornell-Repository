@@ -92,3 +92,22 @@ mutable struct MyValueFunctionPolicy
     V::Array{Float64,1}
     MyValueFunctionPolicy() = new();
 end
+
+"""
+    mutable struct MyMCTSModel <: AbstractSolutionModel
+
+Monte Carlo tree search settings.
+
+### Fields
+- `iterations::Int64`: number of tree-building iterations.
+- `c::Float64`: UCT exploration constant.
+- `horizon::Int64`: rollout horizon for the simulation step.
+- `depth::Int64`: maximum tree depth expanded before rollout.
+"""
+mutable struct MyMCTSModel <: AbstractSolutionModel
+    iterations::Int64
+    c::Float64
+    horizon::Int64
+    depth::Int64
+    MyMCTSModel() = new();
+end
