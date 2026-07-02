@@ -1260,39 +1260,122 @@ Add an ungraded-style **[md] instructions** block near the top listing the three
 
 ## Phase 4 — Advanced: Random rollout (grid world)
 
-### Task 4.0: Rollout (`rollout_value`) + test
+### Task 4.0: Slippery grid world (`slip`) + rollout (`rollout_value`) + test
+
+The advanced track uses a **stochastic (slippery)** grid world so that rollout is a genuine noisy estimator (accuracy improves with the number of trajectories). We add a `slip` probability to `build_mdp` — with probability `1-slip` the intended move happens, and with probability `slip` a uniformly random one of the four moves happens instead. `slip = 0.0` reproduces the deterministic MDP exactly, so the value-iteration notebooks (Tasks 1.1/1.2, which call `build_mdp` without `slip`) are unaffected.
 
 **Files:**
-- Modify: `src/Compute.jl` (append), `test/runtests.jl` (append)
+- Modify: `src/Compute.jl` (replace `build_mdp`; append `simulate_return`/`rollout_value`), `test/runtests.jl` (append)
 
 **Interfaces:**
-- Produces:
+- Produces (modified): `build_mdp(world, γ; step_reward=-1.0, offgrid_penalty=-1000.0, absorbing=Set{Tuple{Int,Int}}(), slip::Float64=0.0)::MyMDPProblemModel` — now with the `slip` keyword (default `0.0` = deterministic, unchanged behavior).
+- Produces (new):
   - `simulate_return(problem::MyMDPProblemModel, s0::Int, π_fn::Function, H::Int, rng::AbstractRNG)::Float64`
   - `rollout_value(problem::MyMDPProblemModel, s0::Int; π_fn::Function, H::Int=100, N::Int=1000, rng::AbstractRNG=Random.default_rng())::Float64`
 - Consumes: `MyMDPProblemModel`, `Random`, `Statistics`.
 
-- [ ] **Step 1: Append the failing testset** — rollout under the optimal policy approximates `V*`.
+- [ ] **Step 1: Append the failing testset** — slip regression + stochastic rows + rollout correctness (deterministic → exact).
 
 ```julia
-@testset "random rollout approximates V* under π*" begin
-    # small grid world with a known optimal value from value iteration -
+@testset "slippery grid world + rollout" begin
     rewards = Dict{Tuple{Int,Int},Float64}((5,5)=>100.0, (2,2)=>-100.0);
     world = build(MyRectangularGridWorldModel, (nrows=5, ncols=5, rewards=rewards));
     absorbing = Set(keys(rewards));
-    mdp = build_mdp(world, 0.95; step_reward=-1.0, offgrid_penalty=-1000.0, absorbing=absorbing);
-    sol = solve(build(MyValueIterationModel, (maxiterations=10_000, ϵ=1e-9)), mdp);
-    π_star = policy(Q(mdp, sol.V));
 
+    # slip = 0 reproduces the deterministic MDP exactly (regression) -
+    det  = build_mdp(world, 0.95; absorbing=absorbing);
+    det0 = build_mdp(world, 0.95; absorbing=absorbing, slip=0.0);
+    @test det.T == det0.T;
+    @test det.R == det0.R;
+
+    # slip > 0 gives proper stochastic transition rows that still sum to 1 -
+    slp = build_mdp(world, 0.95; absorbing=absorbing, slip=0.2);
+    for a ∈ slp.𝒜, s ∈ slp.𝒮
+        @test isapprox(sum(slp.T[s, :, a]), 1.0; atol=1e-9);
+    end
+    # a non-absorbing interior state has a genuinely stochastic row (an entry strictly in (0,1)) -
+    s_mid = world.states[(3,3)];
+    @test any(0.0 < slp.T[s_mid, s′, 1] < 1.0 for s′ ∈ slp.𝒮);
+
+    # rollout correctness: in the DETERMINISTIC world, rollout under π* equals V* exactly (zero variance) -
+    sol = solve(build(MyValueIterationModel, (maxiterations=10_000, ϵ=1e-9)), det);
+    π_star = policy(Q(det, sol.V));
     s0 = world.states[(1,1)];
-    rng = Random.MersenneTwister(42);
-    est = rollout_value(mdp, s0; π_fn = s -> π_star[s], H = 200, N = 4_000, rng = rng);
-    @test isapprox(est, sol.V[s0]; rtol = 0.05);       # within 5%
+    est = rollout_value(det, s0; π_fn = s -> π_star[s], H = 200, N = 50, rng = Random.MersenneTwister(42));
+    @test isapprox(est, sol.V[s0]; atol=1e-6);
 end
 ```
 
-- [ ] **Step 2: Run to verify it fails** — FAIL (`rollout_value` not defined).
+- [ ] **Step 2: Run to verify it fails** — FAIL (`slip` keyword / `rollout_value` not defined).
 
-- [ ] **Step 3: Append rollout code to `src/Compute.jl`**
+- [ ] **Step 3: Replace `build_mdp` with the slip-enabled version, and append the rollout code, in `src/Compute.jl`**
+
+Replace the existing `build_mdp` function with:
+
+```julia
+"""
+    build_mdp(world::MyRectangularGridWorldModel, γ::Float64; step_reward, offgrid_penalty, absorbing, slip)
+        -> MyMDPProblemModel
+
+Construct an MDP from a grid world. With probability `1-slip` the chosen action's move happens; with
+probability `slip` a uniformly random one of the four moves happens instead (`slip = 0` ⇒ deterministic).
+A move to a valid non-absorbing cell earns that cell's reward (or `step_reward`); a move off the grid
+earns `offgrid_penalty` and self-loops. Rewards are the expected reward over the (possibly slipped)
+move. Absorbing cells self-loop with zero reward, so their value-to-go is `V=0`.
+"""
+function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
+    step_reward::Float64 = -1.0, offgrid_penalty::Float64 = -1000.0,
+    absorbing::Set{Tuple{Int,Int}} = Set{Tuple{Int,Int}}(),
+    slip::Float64 = 0.0)::MyMDPProblemModel
+
+    nstates = world.nrows*world.ncols;
+    nactions = length(world.moves);
+    𝒮 = collect(1:nstates);
+    𝒜 = collect(1:nactions);
+    rewards = world.rewards;
+
+    R = zeros(Float64, nstates, nactions);
+    T = zeros(Float64, nstates, nstates, nactions);
+
+    # probability that direction a′ is actually attempted when action a is chosen -
+    attempt_prob(a, a′) = (a′ == a ? (1.0 - slip) : 0.0) + slip/nactions;
+
+    for s ∈ 𝒮
+        current = world.coordinates[s];
+
+        # absorbing cells: zero future reward, self-loop on every action (so V(absorbing) = 0) -
+        if (in(current, absorbing) == true)
+            for a ∈ 𝒜
+                R[s, a] = 0.0;
+                T[s, s, a] = 1.0;
+            end
+            continue;
+        end
+
+        for a ∈ 𝒜
+            for a′ ∈ 𝒜
+                w = attempt_prob(a, a′);
+                w == 0.0 && continue;
+                Δ = world.moves[a′];
+                newpos = current .+ Δ;
+                if (haskey(world.states, newpos) == true)
+                    r = haskey(rewards, newpos) ? rewards[newpos] : step_reward;
+                    s′ = world.states[newpos];
+                    R[s, a] += w*r;
+                    T[s, s′, a] += w;
+                else
+                    R[s, a] += w*offgrid_penalty;   # off-grid: stay and pay the penalty
+                    T[s, s, a] += w;
+                end
+            end
+        end
+    end
+
+    return build(MyMDPProblemModel, (𝒮=𝒮, 𝒜=𝒜, T=T, R=R, γ=γ));
+end
+```
+
+Then append the rollout code:
 
 ```julia
 """
@@ -1339,8 +1422,8 @@ function rollout_value(problem::MyMDPProblemModel, s0::Int; π_fn::Function, H::
 end
 ```
 
-- [ ] **Step 4: Run to verify it passes** — PASS.
-- [ ] **Step 5: Commit** `"M4: Monte Carlo rollout + test"`.
+- [ ] **Step 4: Run to verify it passes** — PASS (all prior testsets still pass because `slip` defaults to `0.0`; the new testset passes).
+- [ ] **Step 5: Commit** `"M4: slippery grid world (slip) + Monte Carlo rollout + test"`.
 
 ### Task 4.1: Random-rollout Watch-Demo
 
