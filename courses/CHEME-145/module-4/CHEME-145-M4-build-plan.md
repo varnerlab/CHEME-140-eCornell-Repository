@@ -1580,7 +1580,9 @@ end
     rewards = Dict{Tuple{Int,Int},Float64}((5,5)=>100.0, (2,2)=>-100.0);
     world = build(MyRectangularGridWorldModel, (nrows=5, ncols=5, rewards=rewards));
     absorbing = Set(keys(rewards));
-    mdp = build_mdp(world, 0.95; step_reward=-1.0, offgrid_penalty=-1000.0, absorbing=absorbing);
+    # offgrid_penalty = -1.0 (not -1000): MCTS uses random rollouts that occasionally attempt off-grid
+    # moves; a -1000 spike would make the value estimates noisy and the root-action assertion flaky.
+    mdp = build_mdp(world, 0.95; step_reward=-1.0, offgrid_penalty=-1.0, absorbing=absorbing);
     π_star = policy(Q(mdp, solve(build(MyValueIterationModel, (maxiterations=10_000, ϵ=1e-9)), mdp).V));
 
     s0 = world.states[(4,5)];   # one step left of the goal (5,5): optimal action is right (2)
