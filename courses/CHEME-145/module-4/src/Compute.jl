@@ -225,6 +225,8 @@ function build_inventory_mdp(; capacity::Int, demand_pmf::Vector{Float64}, price
     order_cost::Float64, fixed_cost::Float64, holding_cost::Float64, stockout_penalty::Float64,
     γ::Float64)::MyMDPProblemModel
 
+    @assert isapprox(sum(demand_pmf), 1.0; atol = 1e-9) "demand_pmf must be a probability distribution (its entries must sum to 1)";
+
     nstates = capacity + 1;
     nactions = capacity + 1;
     𝒮 = collect(1:nstates);
@@ -273,6 +275,8 @@ advances to `min(a+1, max_age)`. Replace: reward `-replace_cost + (income0 - mai
 """
 function build_replacement_mdp(; max_age::Int, income0::Float64, income_decline::Float64,
     maint0::Float64, maint_slope::Float64, replace_cost::Float64, γ::Float64)::MyMDPProblemModel
+
+    @assert max_age ≥ 1 "max_age must be ≥ 1 (need at least a new machine and one older age)";
 
     nstates = max_age + 1;
     𝒮 = collect(1:nstates);
