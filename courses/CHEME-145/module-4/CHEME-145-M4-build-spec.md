@@ -2,6 +2,8 @@
 
 *Drafted 2026-07-01. Companion to `courses/CHEME-145/CHEME-145-refactor-plan.md`. Scope, structure, and example domains validated with the author in a brainstorming session.*
 
+**Status: Built** on branch `m4-mdp-buildout` — self-contained `src/` MDP library + tests, value-iteration demo + ungraded, policy-iteration demo + ungraded, the equipment-replacement graded solution + student notebook, and the optional Advanced rollout/MCTS demos + ungraded activities.
+
 ## Goal
 
 Build out Module 4 (Markov Decision Processes) of CHEME-145 to the same standard as Module 1: a self-contained local `src/` code base plus a set of escalating-practice notebooks. The theory lecture already exists (`CHEME-145-M4-Introduction-MarkovDecisionProcess-Read-Pages.ipynb`) and is not rewritten here.
