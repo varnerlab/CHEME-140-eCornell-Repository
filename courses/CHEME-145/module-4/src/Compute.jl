@@ -1,3 +1,6 @@
+using Random
+using Statistics
+
 # PRIVATE ------------------------------------------------------------------------------------- #
 # one-step Bellman lookahead: R(s,a) + γ Σ_s′ T(s′|s,a) V(s′)
 function _lookahead(problem::MyMDPProblemModel, V::Array{Float64,1}, s::Int, a::Int)::Float64
@@ -148,17 +151,19 @@ end
 # ---------------------------------------------------------------------------------------------- #
 
 """
-    build_mdp(world::MyRectangularGridWorldModel, γ::Float64; step_reward, offgrid_penalty, absorbing)
+    build_mdp(world::MyRectangularGridWorldModel, γ::Float64; step_reward, offgrid_penalty, absorbing, slip)
         -> MyMDPProblemModel
 
-Construct a deterministic-move MDP from a grid world. A move to a valid non-absorbing cell earns that
-cell's reward (or `step_reward`); a move off the grid earns `offgrid_penalty` and self-loops.
-Absorbing cells self-loop with zero reward, so their value-to-go is `V=0` (the terminal reward is
-earned on the step INTO the cell, not while sitting in it).
+Construct an MDP from a grid world. With probability `1-slip` the chosen action's move happens; with
+probability `slip` a uniformly random one of the four moves happens instead (`slip = 0` ⇒ deterministic).
+A move to a valid non-absorbing cell earns that cell's reward (or `step_reward`); a move off the grid
+earns `offgrid_penalty` and self-loops. Rewards are the expected reward over the (possibly slipped)
+move. Absorbing cells self-loop with zero reward, so their value-to-go is `V=0`.
 """
 function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
     step_reward::Float64 = -1.0, offgrid_penalty::Float64 = -1000.0,
-    absorbing::Set{Tuple{Int,Int}} = Set{Tuple{Int,Int}}())::MyMDPProblemModel
+    absorbing::Set{Tuple{Int,Int}} = Set{Tuple{Int,Int}}(),
+    slip::Float64 = 0.0)::MyMDPProblemModel
 
     nstates = world.nrows*world.ncols;
     nactions = length(world.moves);
@@ -169,33 +174,36 @@ function build_mdp(world::MyRectangularGridWorldModel, γ::Float64;
     R = zeros(Float64, nstates, nactions);
     T = zeros(Float64, nstates, nstates, nactions);
 
-    for a ∈ 𝒜
-        Δ = world.moves[a];
-        for s ∈ 𝒮
-            current = world.coordinates[s];
+    # probability that direction a′ is actually attempted when action a is chosen -
+    attempt_prob(a, a′) = (a′ == a ? (1.0 - slip) : 0.0) + slip/nactions;
 
-            # absorbing cells: zero future reward, self-loop (so V(absorbing) = 0) -
-            if (in(current, absorbing) == true)
+    for s ∈ 𝒮
+        current = world.coordinates[s];
+
+        # absorbing cells: zero future reward, self-loop on every action (so V(absorbing) = 0) -
+        if (in(current, absorbing) == true)
+            for a ∈ 𝒜
                 R[s, a] = 0.0;
                 T[s, s, a] = 1.0;
-                continue;
             end
+            continue;
+        end
 
-            newpos = current .+ Δ;
-
-            # reward (current is non-absorbing) -
-            if (haskey(world.states, newpos) == true)
-                R[s,a] = haskey(rewards, newpos) ? rewards[newpos] : step_reward;
-            else
-                R[s,a] = offgrid_penalty;
-            end
-
-            # transition (current is non-absorbing) -
-            if (haskey(world.states, newpos) == true)
-                s′ = world.states[newpos];
-                T[s, s′, a] = 1.0;
-            else
-                T[s, s, a] = 1.0;   # off-grid -> self-loop
+        for a ∈ 𝒜
+            for a′ ∈ 𝒜
+                w = attempt_prob(a, a′);
+                w == 0.0 && continue;
+                Δ = world.moves[a′];
+                newpos = current .+ Δ;
+                if (haskey(world.states, newpos) == true)
+                    r = haskey(rewards, newpos) ? rewards[newpos] : step_reward;
+                    s′ = world.states[newpos];
+                    R[s, a] += w*r;
+                    T[s, s′, a] += w;
+                else
+                    R[s, a] += w*offgrid_penalty;   # off-grid: stay and pay the penalty
+                    T[s, s, a] += w;
+                end
             end
         end
     end
@@ -286,4 +294,47 @@ function build_replacement_mdp(; max_age::Int, income0::Float64, income_decline:
     end
 
     return build(MyMDPProblemModel, (𝒮=𝒮, 𝒜=𝒜, T=T, R=R, γ=γ));
+end
+
+"""
+    simulate_return(problem, s0, π_fn, H, rng) -> Float64
+
+Simulate one trajectory of length `H` from state `s0` under policy `π_fn` (a function `s -> a`) and
+return the discounted return `Σ_t γ^t R(s_t, a_t)`. Next states are sampled from `T`.
+"""
+function simulate_return(problem::MyMDPProblemModel, s0::Int, π_fn::Function, H::Int,
+    rng::AbstractRNG)::Float64
+    𝒮, T, R, γ = problem.𝒮, problem.T, problem.R, problem.γ;
+    s = s0;
+    G = 0.0;
+    discount = 1.0;
+    for _ ∈ 1:H
+        a = π_fn(s);
+        G += discount*R[s, a];
+        # sample s′ ~ T[s,:,a] -
+        u = rand(rng);
+        cumulative = 0.0;
+        s′ = s;
+        for j ∈ 𝒮
+            cumulative += T[s, j, a];
+            if (u ≤ cumulative)
+                s′ = j;
+                break;
+            end
+        end
+        s = s′;
+        discount *= γ;
+    end
+    return G;
+end
+
+"""
+    rollout_value(problem, s0; π_fn, H, N, rng) -> Float64
+
+Monte Carlo rollout estimate of the value of state `s0` under base policy `π_fn`: the mean discounted
+return over `N` simulated trajectories of horizon `H`.
+"""
+function rollout_value(problem::MyMDPProblemModel, s0::Int; π_fn::Function, H::Int = 100,
+    N::Int = 1000, rng::AbstractRNG = Random.default_rng())::Float64
+    return mean(simulate_return(problem, s0, π_fn, H, rng) for _ ∈ 1:N);
 end

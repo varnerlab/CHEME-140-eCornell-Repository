@@ -108,3 +108,31 @@ end
     a_star = minimum(replace_ages);
     @test all(π_vi[a+1] == 2 for a ∈ a_star:10);      # monotone
 end
+
+@testset "slippery grid world + rollout" begin
+    rewards = Dict{Tuple{Int,Int},Float64}((5,5)=>100.0, (2,2)=>-100.0);
+    world = build(MyRectangularGridWorldModel, (nrows=5, ncols=5, rewards=rewards));
+    absorbing = Set(keys(rewards));
+
+    # slip = 0 reproduces the deterministic MDP exactly (regression) -
+    det  = build_mdp(world, 0.95; absorbing=absorbing);
+    det0 = build_mdp(world, 0.95; absorbing=absorbing, slip=0.0);
+    @test det.T == det0.T;
+    @test det.R == det0.R;
+
+    # slip > 0 gives proper stochastic transition rows that still sum to 1 -
+    slp = build_mdp(world, 0.95; absorbing=absorbing, slip=0.2);
+    for a ∈ slp.𝒜, s ∈ slp.𝒮
+        @test isapprox(sum(slp.T[s, :, a]), 1.0; atol=1e-9);
+    end
+    # a non-absorbing interior state has a genuinely stochastic row (an entry strictly in (0,1)) -
+    s_mid = world.states[(3,3)];
+    @test any(0.0 < slp.T[s_mid, s′, 1] < 1.0 for s′ ∈ slp.𝒮);
+
+    # rollout correctness: in the DETERMINISTIC world, rollout under π* equals V* exactly (zero variance) -
+    sol = solve(build(MyValueIterationModel, (maxiterations=10_000, ϵ=1e-9)), det);
+    π_star = policy(Q(det, sol.V));
+    s0 = world.states[(1,1)];
+    est = rollout_value(det, s0; π_fn = s -> π_star[s], H = 200, N = 50, rng = Random.MersenneTwister(42));
+    @test isapprox(est, sol.V[s0]; atol=1e-6);
+end
