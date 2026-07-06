@@ -115,7 +115,7 @@ Seed chosen at build time so the executed Solution shows decode accuracy in roug
 ## Acceptance checks
 
 1. `test/runtests.jl` passes in the module-3 environment.
-2. All three notebooks execute headless end-to-end; the student notebook errors only at the three TODO stubs.
+2. All three notebooks execute headless end-to-end; in the student notebook, the three TODO stubs error by design, and the only other errors are in downstream cells that consume stub results (module-4 precedent).
 3. Ungraded executed output: log-likelihood history non-decreasing; Experiment 1 error norms decrease as $N$ grows; Experiment 2 error norms increase as the emission diagonal decreases.
 4. Solution executed output: `ℓ_casino > ℓ_fair`; decode accuracy printed in [0.70, 0.95].
 5. Learning Objectives and Key Takeaways: exactly 3 items each, house format, direct/simple/concise language, content supported by the notebook (CLAUDE.md standards).
