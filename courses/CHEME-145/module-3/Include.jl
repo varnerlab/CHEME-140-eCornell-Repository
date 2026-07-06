@@ -30,6 +30,7 @@ colors[4] = colorant"#CC3311"; # red
 colors[5] = colorant"#009988"; # teal
 colors[6] = colorant"#EE3377"; # magenta
 
+# NOTE: the src/ definitions of build/solve/simulate below intentionally take precedence over any same-named exports from VLDataScienceMachineLearningPackage (loaded above); qualify with the package name if you ever need the package's version.
 # load my codes -
 include(joinpath(_PATH_TO_SRC, "Types.jl"));
 include(joinpath(_PATH_TO_SRC, "Factory.jl"));

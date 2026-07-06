@@ -263,11 +263,12 @@ function solve(model::MyBaumWelchModel, sequences::Array{Array{Int64,1},1};
         end
         P = P_new; E = E_new;
 
-        # convergence check -
+        # convergence check (k counts completed iterations, so increment before the K_max test) -
+        k += 1;
         if (abs(ℒ - ℒ_prev) < ϵ || k ≥ Kmax)
             converged = true;
         end
-        ℒ_prev = ℒ; k += 1;
+        ℒ_prev = ℒ;
     end
 
     # package and return -

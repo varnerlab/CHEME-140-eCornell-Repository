@@ -117,4 +117,16 @@ end
     aligned = align_states(result.P, result.E, P_true, E_true);
     @test norm(aligned.P - P_true) < 0.15;
     @test norm(aligned.E - E_true) < 0.15;
+
+    # iteration cap: with ϵ = 0 the ϵ-criterion cannot fire (except on an exact tie), so the loop
+    # must stop at maxiterations and never overrun it -
+    short_sequences = [s.observed for s ∈ simulate(hmm_true, 20; N = 5, rng = Xoshiro(11))];
+    cap_solver = build(MyBaumWelchModel, (maxiterations = 3, ϵ = 0.0));
+    cap_result = solve(cap_solver, short_sequences;
+        number_of_hidden_states = 2, number_of_observable_states = 2, rng = Xoshiro(3));
+    @test cap_result.iterations ≤ 3;
+    @test length(cap_result.loglikelihood_history) ≤ 3;
+
+    # long sequence: the scaled forward algorithm stays finite at T ≥ 1,000 (no underflow) -
+    @test isfinite(loglikelihood(hmm_true, simulate(hmm_true, 1_000; N = 1, rng = Xoshiro(99))[1].observed));
 end
