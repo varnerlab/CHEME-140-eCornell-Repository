@@ -32,3 +32,47 @@ function simulate(hmm::MyHiddenMarkovModel, T::Int; N::Int = 1,
     # return -
     return sequences;
 end
+
+# scaled forward pass. Returns (α̂, c) where α̂[t,:] is the normalized forward variable at time t
+# and c[t] is its normalizer, so log P(o | ℋ) = Σₜ log c[t].
+function _forward(hmm::MyHiddenMarkovModel, observed::Array{Int64,1})
+    P, E, π₀ = hmm.P, hmm.E, hmm.π₀;
+    S = size(P, 1); T = length(observed);
+    α̂ = zeros(Float64, T, S); c = zeros(Float64, T);
+
+    # t = 1 -
+    for i ∈ 1:S
+        α̂[1, i] = π₀[i]*E[i, observed[1]];
+    end
+    c[1] = sum(α̂[1, :]);
+    c[1] > 0.0 || error("observation sequence has zero probability under the model");
+    α̂[1, :] = α̂[1, :] ./ c[1];
+
+    # recursion -
+    for t ∈ 2:T
+        for j ∈ 1:S
+            a = 0.0;
+            for i ∈ 1:S
+                a += α̂[t-1, i]*P[i, j];
+            end
+            α̂[t, j] = a*E[j, observed[t]];
+        end
+        c[t] = sum(α̂[t, :]);
+        c[t] > 0.0 || error("observation sequence has zero probability under the model");
+        α̂[t, :] = α̂[t, :] ./ c[t];
+    end
+
+    # return -
+    return (α̂ = α̂, c = c);
+end
+
+"""
+    loglikelihood(hmm::MyHiddenMarkovModel, observed::Array{Int64,1}) -> Float64
+
+Compute log P(o | ℋ) with the scaled forward algorithm (evaluation problem). Numerically stable
+for long sequences: the log-likelihood is recovered from the per-step scaling constants.
+"""
+function loglikelihood(hmm::MyHiddenMarkovModel, observed::Array{Int64,1})::Float64
+    (_, c) = _forward(hmm, observed);
+    return sum(log.(c));
+end

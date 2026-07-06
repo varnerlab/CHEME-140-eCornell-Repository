@@ -39,3 +39,27 @@ end
     b = simulate(hmm, 50; N = 4, rng = Xoshiro(123));
     @test a == b;
 end
+
+@testset "forward loglikelihood" begin
+    P = [0.7 0.3; 0.4 0.6];
+    E = [0.9 0.1; 0.2 0.8];
+    π₀ = [0.6, 0.4];
+    hmm = build(MyHiddenMarkovModel, (P = P, E = E, π₀ = π₀));
+    o = [1, 2, 2, 1];
+
+    # brute force: P(o) = Σ over all 2⁴ hidden paths of P(path, o) -
+    total = 0.0;
+    for path ∈ Iterators.product(fill(1:2, 4)...)
+        p = π₀[path[1]]*E[path[1], o[1]];
+        for t ∈ 2:4
+            p *= P[path[t-1], path[t]]*E[path[t], o[t]];
+        end
+        total += p;
+    end
+    @test isapprox(loglikelihood(hmm, o), log(total); atol = 1e-12);
+
+    # scaled forward variables: each row of α̂ sums to 1 -
+    (α̂, c) = _forward(hmm, o);
+    @test size(α̂) == (4, 2) && length(c) == 4;
+    @test all(isapprox.(sum(α̂, dims = 2), 1.0; atol = 1e-12));
+end
