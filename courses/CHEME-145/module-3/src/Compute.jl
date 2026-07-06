@@ -120,3 +120,39 @@ function viterbi(hmm::MyHiddenMarkovModel, observed::Array{Int64,1})::Array{Int6
     # return -
     return path;
 end
+
+# all permutations of a vector (exhaustive; used for small state spaces only)
+function _permutations(v::Array{Int64,1})::Array{Array{Int64,1},1}
+    if (length(v) ≤ 1)
+        return [v];
+    end
+    result = Array{Array{Int64,1},1}();
+    for (i, x) ∈ enumerate(v)
+        rest = vcat(v[1:(i-1)], v[(i+1):end]);
+        for p ∈ _permutations(rest)
+            push!(result, vcat([x], p));
+        end
+    end
+    return result;
+end
+
+"""
+    align_states(P̂, Ê, P, E) -> (σ, P, E)
+
+Baum-Welch learns states up to a permutation of the labels. Search all |𝒮|! permutations σ for
+the one minimizing ‖P̂[σ,σ] - P‖F + ‖Ê[σ,:] - E‖F, and return the permutation together with the
+re-labeled learned matrices. Exhaustive search: intended for small state spaces (|𝒮| ≤ 6).
+"""
+function align_states(P̂::Array{Float64,2}, Ê::Array{Float64,2},
+    P::Array{Float64,2}, E::Array{Float64,2})
+
+    S = size(P, 1);
+    best_σ = collect(1:S); best_err = Inf;
+    for σ ∈ _permutations(collect(1:S))
+        err = norm(P̂[σ, σ] - P) + norm(Ê[σ, :] - E);
+        if (err < best_err)
+            best_err = err; best_σ = σ;
+        end
+    end
+    return (σ = best_σ, P = P̂[best_σ, best_σ], E = Ê[best_σ, :]);
+end

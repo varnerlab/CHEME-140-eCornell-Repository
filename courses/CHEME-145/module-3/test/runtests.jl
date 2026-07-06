@@ -84,3 +84,12 @@ end
     end
     @test viterbi(hmm, o) == best_path;
 end
+
+@testset "align_states" begin
+    P = [0.8 0.15 0.05; 0.1 0.7 0.2; 0.25 0.25 0.5];
+    E = [0.9 0.05 0.05; 0.05 0.9 0.05; 0.05 0.05 0.9];
+    σ_true = [2, 3, 1];
+    aligned = align_states(P[σ_true, σ_true], E[σ_true, :], P, E);
+    @test isapprox(aligned.P, P; atol = 1e-12);
+    @test isapprox(aligned.E, E; atol = 1e-12);
+end
