@@ -93,3 +93,28 @@ end
     @test isapprox(aligned.P, P; atol = 1e-12);
     @test isapprox(aligned.E, E; atol = 1e-12);
 end
+
+@testset "baum-welch" begin
+    P_true = [0.9 0.1; 0.2 0.8];
+    E_true = [0.95 0.05; 0.05 0.95];
+    π₀_true = [0.5, 0.5];
+    hmm_true = build(MyHiddenMarkovModel, (P = P_true, E = E_true, π₀ = π₀_true));
+
+    sequences = [s.observed for s ∈ simulate(hmm_true, 100; N = 100, rng = Xoshiro(42))];
+    solver = build(MyBaumWelchModel, (maxiterations = 200, ϵ = 1e-8));
+    result = solve(solver, sequences;
+        number_of_hidden_states = 2, number_of_observable_states = 2, rng = Xoshiro(7));
+
+    # EM guarantee: the log-likelihood does not decrease -
+    @test all(diff(result.loglikelihood_history) .≥ -1e-6);
+
+    # learned parameters are row-stochastic -
+    @test all(isapprox.(sum(result.P, dims = 2), 1.0; atol = 1e-8));
+    @test all(isapprox.(sum(result.E, dims = 2), 1.0; atol = 1e-8));
+    @test isapprox(sum(result.π₀), 1.0; atol = 1e-8);
+
+    # recovers the true parameters after alignment (easy problem: near-deterministic emissions) -
+    aligned = align_states(result.P, result.E, P_true, E_true);
+    @test norm(aligned.P - P_true) < 0.15;
+    @test norm(aligned.E - E_true) < 0.15;
+end
