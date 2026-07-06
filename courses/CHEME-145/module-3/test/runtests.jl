@@ -63,3 +63,24 @@ end
     @test size(α̂) == (4, 2) && length(c) == 4;
     @test all(isapprox.(sum(α̂, dims = 2), 1.0; atol = 1e-12));
 end
+
+@testset "viterbi" begin
+    P = [0.7 0.3; 0.4 0.6];
+    E = [0.9 0.1; 0.2 0.8];
+    π₀ = [0.6, 0.4];
+    hmm = build(MyHiddenMarkovModel, (P = P, E = E, π₀ = π₀));
+    o = [1, 2, 2, 1];
+
+    # brute force: argmax over all 2⁴ hidden paths of P(path, o) -
+    best_p = -Inf; best_path = Int64[];
+    for path ∈ Iterators.product(fill(1:2, 4)...)
+        p = π₀[path[1]]*E[path[1], o[1]];
+        for t ∈ 2:4
+            p *= P[path[t-1], path[t]]*E[path[t], o[t]];
+        end
+        if (p > best_p)
+            best_p = p; best_path = collect(path);
+        end
+    end
+    @test viterbi(hmm, o) == best_path;
+end

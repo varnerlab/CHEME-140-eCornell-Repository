@@ -76,3 +76,47 @@ function loglikelihood(hmm::MyHiddenMarkovModel, observed::Array{Int64,1})::Floa
     (_, c) = _forward(hmm, observed);
     return sum(log.(c));
 end
+
+"""
+    viterbi(hmm::MyHiddenMarkovModel, observed::Array{Int64,1}) -> Array{Int64,1}
+
+Compute the most likely hidden state path given the observations (decoding problem). Works in
+log-space; zero-probability transitions and emissions become -Inf and are never selected.
+"""
+function viterbi(hmm::MyHiddenMarkovModel, observed::Array{Int64,1})::Array{Int64,1}
+    P, E, π₀ = hmm.P, hmm.E, hmm.π₀;
+    S = size(P, 1); T = length(observed);
+    logP = log.(P); logE = log.(E); logπ₀ = log.(π₀);
+    δ = fill(-Inf, T, S);     # best log-probability of any path ending in state j at time t
+    ψ = zeros(Int64, T, S);   # backpointer to the best predecessor state
+
+    # t = 1 -
+    for i ∈ 1:S
+        δ[1, i] = logπ₀[i] + logE[i, observed[1]];
+    end
+
+    # recursion -
+    for t ∈ 2:T
+        for j ∈ 1:S
+            best_i = 1; best_val = -Inf;
+            for i ∈ 1:S
+                v = δ[t-1, i] + logP[i, j];
+                if (v > best_val)
+                    best_val = v; best_i = i;
+                end
+            end
+            δ[t, j] = best_val + logE[j, observed[t]];
+            ψ[t, j] = best_i;
+        end
+    end
+
+    # backtrace -
+    path = zeros(Int64, T);
+    path[T] = argmax(δ[T, :]);
+    for t ∈ (T-1):-1:1
+        path[t] = ψ[t+1, path[t+1]];
+    end
+
+    # return -
+    return path;
+end
