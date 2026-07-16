@@ -741,10 +741,10 @@ git add test/runtests.jl && git commit -m "M4: add protocol, tool, and wire test
 
 ## Phase 1 — Watch-Demo (Opus subagent; Fable reviews)
 
-### Task 1.1: `CHEME-142-M4-MCP-ChemETools-Watch-Demo.ipynb`
+### Task 1.1: `CHEME-142-M4-Example-MCP-ChemETools-Watch-Demo.ipynb`
 
 **Files:**
-- Create: `CHEME-142-M4-MCP-ChemETools-Watch-Demo.ipynb`
+- Create: `CHEME-142-M4-Example-MCP-ChemETools-Watch-Demo.ipynb`
 
 **Interfaces:**
 - Consumes: `connect`, `initialize!`, `listtools`, `calltool`, `Base.close`, `_ROOT`, `_PATH_TO_SERVER` (Task 0.4); JSON/PrettyTables from `Include.jl`.
@@ -836,7 +836,7 @@ git add test/runtests.jl && git commit -m "M4: add protocol, tool, and wire test
 - [ ] **Step 5: Commit**
 
 ```bash
-git add CHEME-142-M4-MCP-ChemETools-Watch-Demo.ipynb specs/wire-capture.md
+git add CHEME-142-M4-Example-MCP-ChemETools-Watch-Demo.ipynb specs/wire-capture.md
 git commit -m "M4: add ChemE tools MCP watch-demo (executed)"
 ```
 
@@ -891,10 +891,10 @@ git commit -m "M4: add ChemE tools MCP watch-demo (executed)"
 
 ## Phase 3 — Ungraded activity (same Opus subagent; Fable reviews)
 
-### Task 3.1: `CHEME-142-M4-MCP-ToolDiscovery-Ungraded-Codio-Activity.ipynb`
+### Task 3.1: `CHEME-142-M4-Example-MCP-ToolDiscovery-Ungraded-Codio-Activity.ipynb`
 
 **Files:**
-- Create: `CHEME-142-M4-MCP-ToolDiscovery-Ungraded-Codio-Activity.ipynb`
+- Create: `CHEME-142-M4-Example-MCP-ToolDiscovery-Ungraded-Codio-Activity.ipynb`
 
 **Interfaces:**
 - Consumes: client API (Task 0.4). Fully executable end-to-end (ungraded = run-and-modify, house convention); modification prompts direct students to edit and re-run.
@@ -964,10 +964,10 @@ git commit -m "M4: add ChemE tools MCP watch-demo (executed)"
 
 ## Phase 4 — Graded activity (same Opus subagent; Fable reviews)
 
-### Task 4.1: `CHEME-142-M4-MCP-ServerTools-Graded-Codio-Activity-Solution.ipynb`
+### Task 4.1: `CHEME-142-M4-Example-MCP-ServerTools-Graded-Codio-Activity-Solution.ipynb`
 
 **Files:**
-- Create: `CHEME-142-M4-MCP-ServerTools-Graded-Codio-Activity-Solution.ipynb`
+- Create: `CHEME-142-M4-Example-MCP-ServerTools-Graded-Codio-Activity-Solution.ipynb`
 
 **Interfaces:**
 - Consumes: `build`, `register!`, `build_default_registry`, `run_session`, `_PATH_TO_DATA`.
@@ -1067,10 +1067,10 @@ git commit -m "M4: add ChemE tools MCP watch-demo (executed)"
 
 - [ ] **Step 2–4: Execute, verify** (all asserts pass; deviation prints −10.14%), **commit** `M4: add MCP server-tools graded activity solution (executed)`.
 
-### Task 4.2: `CHEME-142-M4-MCP-ServerTools-Graded-Codio-Activity.ipynb` (student version)
+### Task 4.2: `CHEME-142-M4-Example-MCP-ServerTools-Graded-Codio-Activity.ipynb` (student version)
 
 **Files:**
-- Create: `CHEME-142-M4-MCP-ServerTools-Graded-Codio-Activity.ipynb` (derived from 4.1)
+- Create: `CHEME-142-M4-Example-MCP-ServerTools-Graded-Codio-Activity.ipynb` (derived from 4.1)
 
 - [ ] **Step 1: Derive from the solution** (Python `json` pass over the `.ipynb`): identical except the two assessed cells:
   - Cell 5 (Task 1) body replaced by:

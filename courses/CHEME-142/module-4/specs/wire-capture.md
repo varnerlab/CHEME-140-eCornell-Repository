@@ -1,6 +1,6 @@
 # MCP Wire Capture
 
-Real JSON-RPC messages captured from the executed `CHEME-142-M4-MCP-ChemETools-Watch-Demo.ipynb` (verbose client mode). Each message is reproduced verbatim from the notebook's wire output, then pretty-printed here for readability; key order matches the wire. `→` is a message the client sent, `←` a message the server returned. Task 2.2 (`CHEME-142-M4-MCP-ProtocolMessages-Read-Pages.ipynb`) quotes these blocks.
+Real JSON-RPC messages captured from the executed `CHEME-142-M4-Example-MCP-ChemETools-Watch-Demo.ipynb` (verbose client mode). Each message is reproduced verbatim from the notebook's wire output, then pretty-printed here for readability; key order matches the wire. `→` is a message the client sent, `←` a message the server returned. Task 2.2 (`CHEME-142-M4-MCP-ProtocolMessages-Read-Pages.ipynb`) quotes these blocks.
 
 Protocol constants: `protocolVersion = "2025-06-18"`; server `"cheme-142-m4-cheme-tools"` v`1.0.0`.
 
